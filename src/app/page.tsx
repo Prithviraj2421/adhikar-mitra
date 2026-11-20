@@ -1,8 +1,9 @@
 "use client";
 import { Volume2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { HeroOrbit, Logo } from "@/components/fx";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { APP } from "@/config/app";
 import { LOCALES, LOCALE_NAMES, translate, type Locale } from "@/lib/i18n";
 import { patch, useAppState } from "@/lib/store";
@@ -18,13 +19,16 @@ export default function LanguagePage() {
   useEffect(() => {
     document.body.dataset.hydrated = "1"; // end-to-end tests wait for this
   }, []);
+  const [busy, setBusy] = useState<Locale | null>(null);
   const choose = (l: Locale) => {
+    setBusy(l); // instant feedback: the first page visit can take a moment while it loads
     patch({ locale: l });
     const hasFamily = s.consent && s.families.length > 0;
     router.push(`/${l}/${hasFamily ? "benefits" : "consent"}`);
   };
   return (
     <main className="mx-auto flex min-h-dvh max-w-xl flex-col gap-5 px-4 py-5">
+      <div className="flex justify-end"><ThemeToggle /></div>
       <section className="hero rise px-5 pb-6 pt-6 text-center">
         <div className="mb-1 flex items-center justify-center gap-3">
           <Logo size={46} />
@@ -50,7 +54,7 @@ export default function LanguagePage() {
               className="btn btn-primary flex-1 !min-h-[5rem] !justify-start gap-4 !px-4 !text-3xl"
             >
               <span aria-hidden className="inline-flex h-14 w-14 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--grad-sun)" }}>{GLYPH[l]}</span>
-              {LOCALE_NAMES[l]}
+              {busy === l ? "…" : LOCALE_NAMES[l]}
             </button>
             <button
               onClick={() => speak(`${LOCALE_NAMES[l]}`, l)} aria-label={`${translate(l, "a11y.readAloud")}: ${LOCALE_NAMES[l]}`}
@@ -61,6 +65,13 @@ export default function LanguagePage() {
           </li>
         ))}
       </ul>
+      {busy && (
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 text-white" style={{ background: "var(--grad-hero)" }} role="status" aria-live="polite">
+          <Logo size={72} />
+          <div className="h-2 w-48 overflow-hidden rounded-full bg-white/25"><div className="h-2 w-1/2 animate-pulse rounded-full" style={{ background: "var(--grad-sun)" }} /></div>
+          <p className="text-lg font-bold">{translate(busy, "common.loading")}</p>
+        </div>
+      )}
       <p className="rise rise-4 text-center text-sm font-bold">🛡️ {translate("en", "footer.noMoney")}</p>
     </main>
   );

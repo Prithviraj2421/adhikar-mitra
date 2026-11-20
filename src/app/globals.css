@@ -23,6 +23,7 @@
   --success: #166534;
   --success-soft: #dcf5e4;
   --danger: #b91c1c;
+  --danger-fg: #ffffff;
   --danger-soft: #fde8e8;
   --warn-soft: #fff4c7;
   --ring: #c2410c;
@@ -31,26 +32,27 @@
   --grad-sun: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
   --grad-ok: linear-gradient(135deg, #16a34a, #2dd4bf);
 }
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    --bg: #0f0e1d;
-    --fg: #f3f0ea;
-    --card: #1b1a30;
-    --card-glass: rgba(27, 26, 48, 0.78);
-    --muted: #b8b5d2;
-    --border: #35334f;
-    --primary: #a5b4fc;
-    --primary-fg: #12111f;
-    --accent: #fb923c;
-    --accent-fg: #1b1a30;
-    --accent-soft: #3a2415;
-    --success: #4ade80;
-    --success-soft: #12301d;
-    --danger: #f87171;
-    --danger-soft: #3a1717;
-    --warn-soft: #3a3314;
-    --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.7);
-  }
+/* Dark theme is applied with the `dark` class (set from the Light / Dark / System choice, see ThemeScript). */
+:root.dark {
+  color-scheme: dark;
+  --bg: #0f0e1d;
+  --fg: #f3f0ea;
+  --card: #1b1a30;
+  --card-glass: rgba(27, 26, 48, 0.78);
+  --muted: #b8b5d2;
+  --border: #35334f;
+  --primary: #a5b4fc;
+  --primary-fg: #12111f;
+  --accent: #fb923c;
+  --accent-fg: #1b1a30;
+  --accent-soft: #3a2415;
+  --success: #4ade80;
+  --success-soft: #12301d;
+  --danger: #f87171;
+  --danger-fg: #2a0a0a;
+  --danger-soft: #3a1717;
+  --warn-soft: #3a3314;
+  --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.7);
 }
 .high-contrast {
   --bg: #ffffff; --fg: #000000; --card: #ffffff; --card-glass: #ffffff; --muted: #1a1a1a; --border: #000000;
@@ -62,7 +64,8 @@ html.large-text { font-size: 20px; }
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-noto), var(--font-noto-deva), system-ui, sans-serif;
+  /* Fonts are bundled locally (@fontsource), so the app never needs the internet to render text. */
+  font-family: "Noto Sans Variable", "Noto Sans Devanagari Variable", "Nirmala UI", system-ui, sans-serif;
   line-height: 1.55;
   min-height: 100dvh;
 }

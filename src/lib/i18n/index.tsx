@@ -21,6 +21,10 @@ export function LocaleProvider({ locale, children }: { locale: Locale; children:
 export function useLocale(): Locale {
   return useContext(Ctx);
 }
+/** Same as useLocale, for components that can also render outside a locale route (falls back to the saved choice, then English). */
+export function useLocaleOr(): Locale {
+  return useContext(Ctx);
+}
 export function useT() {
   const locale = useContext(Ctx);
   return {

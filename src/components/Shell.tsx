@@ -1,5 +1,6 @@
 "use client";
 import { Contrast, FileText, FlaskConical, Gift, LayoutDashboard, ListChecks, Settings, ShieldCheck, Type, Users } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, type ReactNode } from "react";
@@ -72,6 +73,7 @@ export function Shell({ children }: { children: ReactNode }) {
             <span className="grad-text text-lg leading-tight">{locale === "en" ? APP.name : APP.nameLocal}</span>
           </Link>
           <div className="ml-auto flex items-center gap-1">
+            <ThemeToggle />
             <button
               type="button" className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2" style={{ borderColor: "var(--border)" }}
               aria-pressed={s.largeText} aria-label={t("a11y.largeText")} title={t("a11y.largeText")}

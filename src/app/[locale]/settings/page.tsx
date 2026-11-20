@@ -32,6 +32,19 @@ export default function SettingsPage() {
           ))}
         </div>
       </section>
+      <section className="card mb-4" aria-labelledby="theme-h">
+        <h2 id="theme-h" className="mb-2 text-lg font-bold">{t("set.theme")}</h2>
+        <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label={t("set.theme")}>
+          {(["light", "dark", "system"] as const).map((th) => (
+            <button
+              key={th} role="radio" aria-checked={s.theme === th} onClick={() => patch({ theme: th })} data-testid={`theme-${th}`}
+              className={`btn !min-h-[3.5rem] !px-2 !text-base ${s.theme === th ? "btn-primary" : "btn-ghost"}`}
+            >
+              <span aria-hidden>{th === "light" ? "☀️" : th === "dark" ? "🌙" : "🖥️"}</span> {t(`theme.${th}`)}
+            </button>
+          ))}
+        </div>
+      </section>
       <section className="card mb-4 flex flex-col gap-3">
         <h2 className="text-lg font-bold">{t("set.display")}</h2>
         <label className="flex items-center gap-3 text-lg"><input type="checkbox" className="h-6 w-6" checked={s.largeText} onChange={(e) => patch({ largeText: e.target.checked })} /> {t("a11y.largeText")}</label>
@@ -41,7 +54,7 @@ export default function SettingsPage() {
         <h2 className="mb-2 text-lg font-bold">{t("set.privacy")}</h2>
         <p>{t("set.privacyText")}</p>
         <p className="mt-2 text-sm muted">{t("set.stored", { n: s.families.length })}</p>
-        <button className="btn mt-3 w-full" style={{ background: "var(--danger)", color: "#fff" }} onClick={deleteAll} data-testid="delete-data">🗑️ {t("set.delete")}</button>
+        <button className="btn mt-3 w-full" style={{ background: "var(--danger)", color: "var(--danger-fg)" }} onClick={deleteAll} data-testid="delete-data">🗑️ {t("set.delete")}</button>
         {deleted && <p className="mt-2 font-bold" role="status" data-testid="deleted">{t("set.deleted")}</p>}
       </section>
       <section className="card text-sm">

@@ -69,10 +69,12 @@ npm i
 cp .env.example .env
 npx prisma db push
 npm run seed
-npm run dev
+npm run demo
 ```
 
-Open <http://localhost:3000>. Node 20+ is recommended. (This project was built with `npm i --legacy-peer-deps` on Windows; if `npm i` complains about peers, add that flag.)
+Open <http://localhost:3000>. `npm run demo` builds the app once (about a minute) and then every page opens instantly. On Windows PowerShell use `copy .env.example .env`. `npm run dev` also works, but in dev mode each page compiles the first time you open it (several seconds), which can look like the app is frozen. Node 20+ is recommended; if `npm i` complains about peer dependencies, add `--legacy-peer-deps`. Fonts are bundled, so no internet is needed except for map tiles and the first OCR run.
+
+The app starts in **Light** theme. Use the sun/moon button in the header (or Settings) to switch between Light, Dark and Auto.
 
 Other scripts: `npm test` (unit), `npm run e2e` (Playwright), `npm run screenshots`, `npm run lint`, `npm run typecheck`, `npm run build`, `npm run docs:sources`, `npm run assets`.
 

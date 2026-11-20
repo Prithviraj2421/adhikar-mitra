@@ -435,6 +435,11 @@
   "set.about": "About",
   "set.honesty": "Synthetic demo data. Scheme rules are pending official verification. No government integration.",
   "land.five": "5 gaps solved: discover · understand · documents · apply safely · follow through",
+  "a11y.theme": "Theme",
+  "theme.light": "Light",
+  "theme.dark": "Dark",
+  "theme.system": "Auto",
+  "set.theme": "Theme: Light, Dark or Auto (follows your phone)",
   "ben.members": "Your family",
   "ben.readyBar": "{a} of {b} benefits are ready to apply for"
 }

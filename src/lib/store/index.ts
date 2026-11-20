@@ -54,6 +54,7 @@ export interface AppState {
   role: Role;
   largeText: boolean;
   highContrast: boolean;
+  theme: "light" | "dark" | "system";
   asOfDate: string;
   families: Family[];
   activeId: string | null;
@@ -66,7 +67,7 @@ export interface AppState {
 const KEY = "adhikar-mitra:v1";
 const today = () => new Date().toISOString().slice(0, 10);
 export const initialState = (): AppState => ({
-  v: 1, locale: null, consent: false, role: "CITIZEN", largeText: false, highContrast: false,
+  v: 1, locale: null, consent: false, role: "CITIZEN", largeText: false, highContrast: false, theme: "light",
   asOfDate: today(), families: [], activeId: null, notifications: [], camps: [], lifeLog: [], online: true,
 });
 
