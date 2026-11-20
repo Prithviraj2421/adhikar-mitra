@@ -1,0 +1,250 @@
+[
+  {
+    "id": "aadhaar",
+    "name": {
+      "en": "Aadhaar card",
+      "hi": "आधार कार्ड",
+      "mr": "आधार कार्ड"
+    },
+    "scope": "member",
+    "issuingOffice": "UIDAI enrolment centre",
+    "effortDays": 7,
+    "costINR": 0,
+    "validityMonths": null,
+    "prerequisites": [],
+    "note": "Only last 4 digits are ever stored."
+  },
+  {
+    "id": "ration-card",
+    "name": {
+      "en": "Ration card",
+      "hi": "राशन कार्ड",
+      "mr": "रेशन कार्ड"
+    },
+    "scope": "household",
+    "issuingOffice": "Food & Civil Supplies office",
+    "effortDays": 14,
+    "costINR": 0,
+    "validityMonths": null,
+    "prerequisites": []
+  },
+  {
+    "id": "bank-passbook",
+    "name": {
+      "en": "Bank passbook",
+      "hi": "बैंक पासबुक",
+      "mr": "बँक पासबुक"
+    },
+    "scope": "member",
+    "issuingOffice": "Bank branch",
+    "effortDays": 1,
+    "costINR": 0,
+    "validityMonths": null,
+    "prerequisites": []
+  },
+  {
+    "id": "bank-account-aadhaar-seeded",
+    "name": {
+      "en": "Bank account linked to Aadhaar",
+      "hi": "आधार से जुड़ा बैंक खाता",
+      "mr": "आधारशी जोडलेले बँक खाते"
+    },
+    "scope": "member",
+    "issuingOffice": "Bank branch",
+    "effortDays": 2,
+    "costINR": 0,
+    "validityMonths": null,
+    "prerequisites": [
+      "aadhaar",
+      "bank-passbook"
+    ],
+    "note": "Ask the bank to seed (link) Aadhaar and confirm NPCI mapping."
+  },
+  {
+    "id": "income-certificate",
+    "name": {
+      "en": "Income certificate",
+      "hi": "आय प्रमाणपत्र",
+      "mr": "उत्पन्नाचा दाखला"
+    },
+    "scope": "household",
+    "issuingOffice": "Tehsil office / Aaple Sarkar Seva Kendra",
+    "effortDays": 7,
+    "costINR": 50,
+    "validityMonths": 12,
+    "prerequisites": [
+      "aadhaar",
+      "ration-card"
+    ],
+    "note": "VERIFY validity period and fee."
+  },
+  {
+    "id": "domicile-certificate",
+    "name": {
+      "en": "Domicile certificate",
+      "hi": "अधिवास प्रमाणपत्र",
+      "mr": "अधिवास प्रमाणपत्र"
+    },
+    "scope": "member",
+    "issuingOffice": "Tehsil office / Aaple Sarkar Seva Kendra",
+    "effortDays": 15,
+    "costINR": 50,
+    "validityMonths": null,
+    "prerequisites": [
+      "aadhaar",
+      "ration-card"
+    ],
+    "note": "VERIFY required supporting documents."
+  },
+  {
+    "id": "caste-certificate",
+    "name": {
+      "en": "Caste certificate",
+      "hi": "जाति प्रमाणपत्र",
+      "mr": "जातीचा दाखला"
+    },
+    "scope": "member",
+    "issuingOffice": "Sub-Divisional Officer / Tehsil office",
+    "effortDays": 30,
+    "costINR": 50,
+    "validityMonths": null,
+    "prerequisites": [
+      "aadhaar",
+      "ration-card"
+    ],
+    "note": "VERIFY."
+  },
+  {
+    "id": "spouse-death-certificate",
+    "name": {
+      "en": "Spouse's death certificate",
+      "hi": "पति/पत्नी का मृत्यु प्रमाणपत्र",
+      "mr": "पती/पत्नीचा मृत्यू दाखला"
+    },
+    "scope": "member",
+    "issuingOffice": "Municipal / Gram Panchayat registrar",
+    "effortDays": 7,
+    "costINR": 0,
+    "validityMonths": null,
+    "prerequisites": []
+  },
+  {
+    "id": "land-7-12",
+    "name": {
+      "en": "7/12 land extract",
+      "hi": "7/12 उतारा",
+      "mr": "७/१२ उतारा"
+    },
+    "scope": "household",
+    "issuingOffice": "Talathi office / Mahabhulekh portal",
+    "effortDays": 1,
+    "costINR": 0,
+    "validityMonths": 12,
+    "prerequisites": [],
+    "note": "Name spelling must match Aadhaar."
+  },
+  {
+    "id": "school-bonafide",
+    "name": {
+      "en": "School bonafide certificate",
+      "hi": "स्कूल बोनाफाइड प्रमाणपत्र",
+      "mr": "शाळेचा बोनाफाईड दाखला"
+    },
+    "scope": "member",
+    "issuingOffice": "School / College",
+    "effortDays": 1,
+    "costINR": 0,
+    "validityMonths": 12,
+    "prerequisites": []
+  },
+  {
+    "id": "mch-card",
+    "name": {
+      "en": "Pregnancy registration (MCP card)",
+      "hi": "गर्भावस्था पंजीकरण (एमसीपी कार्ड)",
+      "mr": "गर्भधारणा नोंदणी (एमसीपी कार्ड)"
+    },
+    "scope": "member",
+    "issuingOffice": "Anganwadi / ASHA / Primary Health Centre",
+    "effortDays": 3,
+    "costINR": 0,
+    "validityMonths": null,
+    "prerequisites": []
+  },
+  {
+    "id": "bocw-90day-certificate",
+    "name": {
+      "en": "90-day construction work certificate",
+      "hi": "90 दिन के निर्माण कार्य का प्रमाणपत्र",
+      "mr": "९० दिवस बांधकाम कामाचे प्रमाणपत्र"
+    },
+    "scope": "member",
+    "issuingOffice": "Contractor / Gram Panchayat / Local body",
+    "effortDays": 5,
+    "costINR": 0,
+    "validityMonths": 12,
+    "prerequisites": [
+      "aadhaar"
+    ],
+    "note": "VERIFY the accepted issuers."
+  },
+  {
+    "id": "passport-photo",
+    "name": {
+      "en": "Passport-size photo",
+      "hi": "पासपोर्ट साइज फोटो",
+      "mr": "पासपोर्ट साइज फोटो"
+    },
+    "scope": "member",
+    "issuingOffice": "Any photo studio",
+    "effortDays": 1,
+    "costINR": 30,
+    "validityMonths": null,
+    "prerequisites": []
+  },
+  {
+    "id": "age-proof",
+    "name": {
+      "en": "Age proof (birth / school certificate)",
+      "hi": "आयु प्रमाण (जन्म / स्कूल प्रमाणपत्र)",
+      "mr": "वयाचा पुरावा (जन्म / शाळा दाखला)"
+    },
+    "scope": "member",
+    "issuingOffice": "Registrar / School",
+    "effortDays": 7,
+    "costINR": 0,
+    "validityMonths": null,
+    "prerequisites": []
+  },
+  {
+    "id": "disability-certificate",
+    "name": {
+      "en": "Disability certificate",
+      "hi": "दिव्यांग प्रमाणपत्र",
+      "mr": "दिव्यांग प्रमाणपत्र"
+    },
+    "scope": "member",
+    "issuingOffice": "Civil Surgeon / District hospital",
+    "effortDays": 21,
+    "costINR": 0,
+    "validityMonths": null,
+    "prerequisites": []
+  },
+  {
+    "id": "bpl-proof",
+    "name": {
+      "en": "BPL / priority-household proof",
+      "hi": "बीपीएल / प्राथमिकता परिवार प्रमाण",
+      "mr": "बीपीएल / प्राधान्य कुटुंब पुरावा"
+    },
+    "scope": "household",
+    "issuingOffice": "Ration office / Panchayat",
+    "effortDays": 10,
+    "costINR": 0,
+    "validityMonths": null,
+    "prerequisites": [
+      "ration-card"
+    ],
+    "note": "VERIFY."
+  }
+]

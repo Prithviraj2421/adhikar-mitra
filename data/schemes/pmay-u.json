@@ -1,0 +1,114 @@
+{
+  "level": "CENTRAL",
+  "target": "HOUSEHOLD",
+  "id": "pmay-u",
+  "name": {
+    "en": "PM Awas Yojana – Urban",
+    "hi": "प्रधानमंत्री आवास योजना – शहरी",
+    "mr": "प्रधानमंत्री आवास योजना – शहरी"
+  },
+  "summary": {
+    "en": "Help to own a pucca house in a city.",
+    "hi": "शहर में पक्का घर पाने में सहायता।",
+    "mr": "शहरात पक्के घर मिळवण्यासाठी मदत."
+  },
+  "department": "Ministry of Housing & Urban Affairs",
+  "category": "HOUSING",
+  "benefit": {
+    "type": "CASH_ONE_TIME",
+    "estimatedAnnualINR": 50000,
+    "description": {
+      "en": "One-time subsidy, shown here spread over 5 years (estimated).",
+      "hi": "एकमुश्त सब्सिडी, यहाँ 5 वर्षों में बाँटकर (अनुमानित)।",
+      "mr": "एकरकमी अनुदान, येथे ५ वर्षांत विभागून (अंदाजे)."
+    }
+  },
+  "requiredDocuments": [
+    "aadhaar",
+    "income-certificate",
+    "bank-account-aadhaar-seeded"
+  ],
+  "sourceUrls": [
+    "https://pmaymis.gov.in/"
+  ],
+  "eligibility": {
+    "all": [
+      {
+        "id": "urban",
+        "field": "household.areaType",
+        "op": "eq",
+        "value": "URBAN",
+        "label": {
+          "en": "Family lives in a city or town",
+          "hi": "परिवार शहर में रहता है",
+          "mr": "कुटुंब शहरात राहते"
+        },
+        "askQuestionId": "q_area"
+      },
+      {
+        "id": "house",
+        "field": "household.houseType",
+        "op": "in",
+        "value": [
+          "KUTCHA",
+          "NONE"
+        ],
+        "label": {
+          "en": "No pucca house",
+          "hi": "पक्का घर नहीं है",
+          "mr": "पक्के घर नाही"
+        },
+        "askQuestionId": "q_house"
+      },
+      {
+        "id": "income",
+        "field": "household.annualIncomeINR",
+        "op": "lte",
+        "value": 600000,
+        "label": {
+          "en": "Family yearly income is within the limit",
+          "hi": "परिवार की वार्षिक आय सीमा के भीतर है",
+          "mr": "कुटुंबाचे वार्षिक उत्पन्न मर्यादेत आहे"
+        },
+        "askQuestionId": "q_income",
+        "note": "VERIFY"
+      }
+    ],
+    "exclusions": []
+  },
+  "application": {
+    "modes": [
+      {
+        "type": "ONLINE",
+        "url": "https://pmaymis.gov.in/"
+      },
+      {
+        "type": "OFFLINE",
+        "officeTypes": [
+          "MUNICIPAL_OFFICE",
+          "CSC"
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "en": "Collect the documents listed for this scheme.",
+        "hi": "इस योजना के लिए सूचीबद्ध दस्तावेज़ इकट्ठा करें।",
+        "mr": "या योजनेसाठी सूचीतील कागदपत्रे गोळा करा."
+      },
+      {
+        "en": "Apply on the official portal, or at the nearest help centre. It is free.",
+        "hi": "आधिकारिक पोर्टल पर या नज़दीकी सहायता केंद्र पर आवेदन करें। यह निःशुल्क है।",
+        "mr": "अधिकृत पोर्टलवर किंवा जवळच्या मदत केंद्रात अर्ज करा. हे मोफत आहे."
+      },
+      {
+        "en": "Save your reference number and track it in Adhikar Mitra.",
+        "hi": "अपना संदर्भ क्रमांक सहेजें और अधिकार मित्र में ट्रैक करें।",
+        "mr": "तुमचा संदर्भ क्रमांक जतन करा आणि अधिकार मित्र मध्ये मागोवा घ्या."
+      }
+    ],
+    "deadline": null
+  },
+  "verified": false,
+  "lastVerified": null
+}

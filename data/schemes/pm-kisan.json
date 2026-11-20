@@ -1,0 +1,125 @@
+{
+  "level": "CENTRAL",
+  "target": "HOUSEHOLD",
+  "id": "pm-kisan",
+  "name": {
+    "en": "PM-KISAN Samman Nidhi",
+    "hi": "पीएम-किसान सम्मान निधि",
+    "mr": "पीएम-किसान सन्मान निधी"
+  },
+  "summary": {
+    "en": "Income support for farmer families.",
+    "hi": "किसान परिवारों के लिए आय सहायता।",
+    "mr": "शेतकरी कुटुंबांसाठी उत्पन्न सहाय्य."
+  },
+  "department": "Ministry of Agriculture & Farmers Welfare",
+  "category": "FARMER",
+  "benefit": {
+    "type": "CASH_RECURRING",
+    "estimatedAnnualINR": 6000,
+    "description": {
+      "en": "About ₹6,000 per year in instalments (estimated).",
+      "hi": "लगभग ₹6,000 प्रति वर्ष किस्तों में (अनुमानित)।",
+      "mr": "सुमारे ₹६,००० दरवर्षी हप्त्यांत (अंदाजे)."
+    }
+  },
+  "requiredDocuments": [
+    "aadhaar",
+    "land-7-12",
+    "bank-account-aadhaar-seeded"
+  ],
+  "sourceUrls": [
+    "https://pmkisan.gov.in/"
+  ],
+  "eligibility": {
+    "all": [
+      {
+        "id": "farmer",
+        "field": "member.occupation",
+        "op": "in",
+        "value": [
+          "farmer"
+        ],
+        "label": {
+          "en": "Applicant is a farmer",
+          "hi": "आवेदक किसान है",
+          "mr": "अर्जदार शेतकरी आहे"
+        },
+        "askQuestionId": "q_occupation"
+      },
+      {
+        "id": "land",
+        "field": "household.landHoldingAcres",
+        "op": "gt",
+        "value": 0,
+        "label": {
+          "en": "Family owns cultivable land",
+          "hi": "परिवार के पास खेती योग्य भूमि है",
+          "mr": "कुटुंबाकडे शेतीयोग्य जमीन आहे"
+        },
+        "askQuestionId": "q_land"
+      }
+    ],
+    "exclusions": [
+      {
+        "id": "taxpayer",
+        "field": "member.isIncomeTaxPayer",
+        "op": "eq",
+        "value": true,
+        "label": {
+          "en": "Income tax payers are not eligible",
+          "hi": "आयकर दाता पात्र नहीं हैं",
+          "mr": "आयकर भरणारे पात्र नाहीत"
+        },
+        "askQuestionId": "q_tax"
+      },
+      {
+        "id": "govt-employee",
+        "field": "member.occupation",
+        "op": "eq",
+        "value": "govt-employee",
+        "label": {
+          "en": "Government employees are not eligible",
+          "hi": "सरकारी कर्मचारी पात्र नहीं हैं",
+          "mr": "सरकारी कर्मचारी पात्र नाहीत"
+        },
+        "askQuestionId": "q_occupation"
+      }
+    ]
+  },
+  "application": {
+    "modes": [
+      {
+        "type": "ONLINE",
+        "url": "https://pmkisan.gov.in/"
+      },
+      {
+        "type": "OFFLINE",
+        "officeTypes": [
+          "GRAM_PANCHAYAT",
+          "CSC"
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "en": "Collect the documents listed for this scheme.",
+        "hi": "इस योजना के लिए सूचीबद्ध दस्तावेज़ इकट्ठा करें।",
+        "mr": "या योजनेसाठी सूचीतील कागदपत्रे गोळा करा."
+      },
+      {
+        "en": "Apply on the official portal, or at the nearest help centre. It is free.",
+        "hi": "आधिकारिक पोर्टल पर या नज़दीकी सहायता केंद्र पर आवेदन करें। यह निःशुल्क है।",
+        "mr": "अधिकृत पोर्टलवर किंवा जवळच्या मदत केंद्रात अर्ज करा. हे मोफत आहे."
+      },
+      {
+        "en": "Save your reference number and track it in Adhikar Mitra.",
+        "hi": "अपना संदर्भ क्रमांक सहेजें और अधिकार मित्र में ट्रैक करें।",
+        "mr": "तुमचा संदर्भ क्रमांक जतन करा आणि अधिकार मित्र मध्ये मागोवा घ्या."
+      }
+    ],
+    "deadline": null
+  },
+  "verified": false,
+  "lastVerified": null
+}

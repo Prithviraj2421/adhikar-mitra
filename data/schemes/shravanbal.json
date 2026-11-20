@@ -1,0 +1,129 @@
+{
+  "level": "STATE",
+  "target": "MEMBER",
+  "state": "MH",
+  "id": "shravanbal",
+  "name": {
+    "en": "Shravanbal Seva Rajya Nivruttivetan Yojana",
+    "hi": "श्रावणबाळ सेवा राज्य निवृत्तिवेतन योजना",
+    "mr": "श्रावणबाळ सेवा राज्य निवृत्तिवेतन योजना"
+  },
+  "summary": {
+    "en": "State pension for poor senior citizens.",
+    "hi": "गरीब वरिष्ठ नागरिकों के लिए राज्य पेंशन।",
+    "mr": "गरीब ज्येष्ठ नागरिकांसाठी राज्य निवृत्तिवेतन."
+  },
+  "department": "Social Justice & Special Assistance Dept, Maharashtra",
+  "category": "PENSION",
+  "benefit": {
+    "type": "CASH_RECURRING",
+    "estimatedAnnualINR": 18000,
+    "description": {
+      "en": "Monthly pension, yearly total (estimated).",
+      "hi": "मासिक पेंशन, वार्षिक कुल (अनुमानित)।",
+      "mr": "मासिक निवृत्तिवेतन, वार्षिक एकूण (अंदाजे)."
+    }
+  },
+  "requiredDocuments": [
+    "aadhaar",
+    "age-proof",
+    "income-certificate",
+    "domicile-certificate",
+    "bank-account-aadhaar-seeded"
+  ],
+  "sourceUrls": [
+    "https://sjsa.maharashtra.gov.in/"
+  ],
+  "eligibility": {
+    "all": [
+      {
+        "id": "age",
+        "field": "member.age",
+        "op": "gte",
+        "value": 65,
+        "label": {
+          "en": "Age 65 or more",
+          "hi": "आयु 65 वर्ष या अधिक",
+          "mr": "वय ६५ किंवा अधिक"
+        },
+        "askQuestionId": "q_dob",
+        "note": "VERIFY"
+      },
+      {
+        "id": "income",
+        "field": "household.annualIncomeINR",
+        "op": "lte",
+        "value": 50000,
+        "label": {
+          "en": "Family yearly income is within the limit",
+          "hi": "परिवार की वार्षिक आय सीमा के भीतर है",
+          "mr": "कुटुंबाचे वार्षिक उत्पन्न मर्यादेत आहे"
+        },
+        "askQuestionId": "q_income",
+        "note": "VERIFY"
+      },
+      {
+        "id": "resident",
+        "field": "household.yearsResidentInMaharashtra",
+        "op": "gte",
+        "value": 15,
+        "label": {
+          "en": "Living in Maharashtra for at least 15 years",
+          "hi": "महाराष्ट्र में कम से कम 15 वर्ष से निवास",
+          "mr": "महाराष्ट्रात किमान 15 वर्षे वास्तव्य"
+        },
+        "askQuestionId": "q_resident",
+        "note": "VERIFY"
+      }
+    ],
+    "exclusions": [
+      {
+        "id": "taxpayer",
+        "field": "member.isIncomeTaxPayer",
+        "op": "eq",
+        "value": true,
+        "label": {
+          "en": "Income tax payers are not eligible",
+          "hi": "आयकर दाता पात्र नहीं हैं",
+          "mr": "आयकर भरणारे पात्र नाहीत"
+        },
+        "askQuestionId": "q_tax"
+      }
+    ]
+  },
+  "application": {
+    "modes": [
+      {
+        "type": "ONLINE",
+        "url": "https://aaplesarkar.mahaonline.gov.in/"
+      },
+      {
+        "type": "OFFLINE",
+        "officeTypes": [
+          "TEHSIL_OFFICE",
+          "AAPLE_SARKAR_KENDRA"
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "en": "Collect the documents listed for this scheme.",
+        "hi": "इस योजना के लिए सूचीबद्ध दस्तावेज़ इकट्ठा करें।",
+        "mr": "या योजनेसाठी सूचीतील कागदपत्रे गोळा करा."
+      },
+      {
+        "en": "Apply on the official portal, or at the nearest help centre. It is free.",
+        "hi": "आधिकारिक पोर्टल पर या नज़दीकी सहायता केंद्र पर आवेदन करें। यह निःशुल्क है।",
+        "mr": "अधिकृत पोर्टलवर किंवा जवळच्या मदत केंद्रात अर्ज करा. हे मोफत आहे."
+      },
+      {
+        "en": "Save your reference number and track it in Adhikar Mitra.",
+        "hi": "अपना संदर्भ क्रमांक सहेजें और अधिकार मित्र में ट्रैक करें।",
+        "mr": "तुमचा संदर्भ क्रमांक जतन करा आणि अधिकार मित्र मध्ये मागोवा घ्या."
+      }
+    ],
+    "deadline": null
+  },
+  "verified": false,
+  "lastVerified": null
+}

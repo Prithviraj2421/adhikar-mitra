@@ -1,0 +1,127 @@
+{
+  "level": "CENTRAL",
+  "target": "MEMBER",
+  "id": "pm-ujjwala",
+  "name": {
+    "en": "PM Ujjwala Yojana",
+    "hi": "प्रधानमंत्री उज्ज्वला योजना",
+    "mr": "प्रधानमंत्री उज्ज्वला योजना"
+  },
+  "summary": {
+    "en": "Free LPG connection for women in poor households.",
+    "hi": "गरीब परिवारों की महिलाओं को मुफ्त एलपीजी कनेक्शन।",
+    "mr": "गरीब कुटुंबांतील महिलांना मोफत एलपीजी जोडणी."
+  },
+  "department": "Ministry of Petroleum & Natural Gas",
+  "category": "ENERGY",
+  "benefit": {
+    "type": "IN_KIND",
+    "estimatedAnnualINR": 2700,
+    "description": {
+      "en": "Free connection and a subsidy on refills (estimated).",
+      "hi": "मुफ्त कनेक्शन और रिफिल पर सब्सिडी (अनुमानित)।",
+      "mr": "मोफत जोडणी आणि रिफिलवर अनुदान (अंदाजे)."
+    }
+  },
+  "requiredDocuments": [
+    "aadhaar",
+    "ration-card",
+    "bank-account-aadhaar-seeded"
+  ],
+  "sourceUrls": [
+    "https://www.pmuy.gov.in/"
+  ],
+  "eligibility": {
+    "all": [
+      {
+        "id": "female",
+        "field": "member.gender",
+        "op": "eq",
+        "value": "F",
+        "label": {
+          "en": "Applicant is a woman",
+          "hi": "आवेदक महिला है",
+          "mr": "अर्जदार महिला आहे"
+        },
+        "askQuestionId": "q_gender"
+      },
+      {
+        "id": "age",
+        "field": "member.age",
+        "op": "gte",
+        "value": 18,
+        "label": {
+          "en": "Age 18 or more",
+          "hi": "आयु 18 वर्ष या अधिक",
+          "mr": "वय १८ किंवा अधिक"
+        },
+        "askQuestionId": "q_dob",
+        "note": "VERIFY"
+      },
+      {
+        "id": "no-lpg",
+        "field": "household.hasLpgConnection",
+        "op": "eq",
+        "value": false,
+        "label": {
+          "en": "No LPG connection in the family",
+          "hi": "परिवार में एलपीजी कनेक्शन नहीं है",
+          "mr": "कुटुंबात एलपीजी जोडणी नाही"
+        },
+        "askQuestionId": "q_lpg"
+      },
+      {
+        "id": "ration",
+        "field": "household.rationCardType",
+        "op": "in",
+        "value": [
+          "AAY",
+          "BPL",
+          "PHH"
+        ],
+        "label": {
+          "en": "Ration card category qualifies",
+          "hi": "राशन कार्ड श्रेणी पात्र है",
+          "mr": "रेशन कार्ड प्रकार पात्र आहे"
+        },
+        "askQuestionId": "q_ration",
+        "note": "VERIFY"
+      }
+    ],
+    "exclusions": []
+  },
+  "application": {
+    "modes": [
+      {
+        "type": "ONLINE",
+        "url": "https://www.pmuy.gov.in/"
+      },
+      {
+        "type": "OFFLINE",
+        "officeTypes": [
+          "LPG_DISTRIBUTOR"
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "en": "Collect the documents listed for this scheme.",
+        "hi": "इस योजना के लिए सूचीबद्ध दस्तावेज़ इकट्ठा करें।",
+        "mr": "या योजनेसाठी सूचीतील कागदपत्रे गोळा करा."
+      },
+      {
+        "en": "Apply on the official portal, or at the nearest help centre. It is free.",
+        "hi": "आधिकारिक पोर्टल पर या नज़दीकी सहायता केंद्र पर आवेदन करें। यह निःशुल्क है।",
+        "mr": "अधिकृत पोर्टलवर किंवा जवळच्या मदत केंद्रात अर्ज करा. हे मोफत आहे."
+      },
+      {
+        "en": "Save your reference number and track it in Adhikar Mitra.",
+        "hi": "अपना संदर्भ क्रमांक सहेजें और अधिकार मित्र में ट्रैक करें।",
+        "mr": "तुमचा संदर्भ क्रमांक जतन करा आणि अधिकार मित्र मध्ये मागोवा घ्या."
+      }
+    ],
+    "deadline": null
+  },
+  "verified": false,
+  "lastVerified": null
+}

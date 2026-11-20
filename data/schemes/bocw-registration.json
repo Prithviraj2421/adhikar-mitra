@@ -1,0 +1,103 @@
+{
+  "level": "STATE",
+  "target": "MEMBER",
+  "state": "MH",
+  "id": "bocw-registration",
+  "name": {
+    "en": "Construction Worker Welfare Registration (BOCW)",
+    "hi": "निर्माण कामगार कल्याण पंजीकरण (बीओसीडब्ल्यू)",
+    "mr": "बांधकाम कामगार कल्याण नोंदणी (बीओसीडब्ल्यू)"
+  },
+  "summary": {
+    "en": "Registration unlocks education, health and safety benefits for construction workers.",
+    "hi": "पंजीकरण से निर्माण कामगारों को शिक्षा, स्वास्थ्य और सुरक्षा लाभ मिलते हैं।",
+    "mr": "नोंदणीमुळे बांधकाम कामगारांना शिक्षण, आरोग्य व सुरक्षा लाभ मिळतात."
+  },
+  "department": "Maharashtra Building & Other Construction Workers Welfare Board",
+  "category": "WORKER",
+  "benefit": {
+    "type": "REGISTRATION",
+    "estimatedAnnualINR": 6000,
+    "description": {
+      "en": "Varies by benefit used; yearly value is a rough estimate.",
+      "hi": "उपयोग किए गए लाभ पर निर्भर; वार्षिक मूल्य मोटा अनुमान।",
+      "mr": "वापरलेल्या लाभावर अवलंबून; वार्षिक मूल्य ढोबळ अंदाज."
+    }
+  },
+  "requiredDocuments": [
+    "aadhaar",
+    "bocw-90day-certificate",
+    "passport-photo",
+    "bank-account-aadhaar-seeded"
+  ],
+  "sourceUrls": [
+    "https://mahabocw.in/"
+  ],
+  "eligibility": {
+    "all": [
+      {
+        "id": "age-range",
+        "field": "member.age",
+        "op": "between",
+        "value": [
+          18,
+          60
+        ],
+        "label": {
+          "en": "Age between 18 and 60",
+          "hi": "आयु 18 से 60 के बीच",
+          "mr": "वय 18 ते 60 दरम्यान"
+        },
+        "askQuestionId": "q_dob",
+        "note": "VERIFY"
+      },
+      {
+        "id": "construction",
+        "field": "member.occupation",
+        "op": "eq",
+        "value": "construction",
+        "label": {
+          "en": "Works in construction",
+          "hi": "निर्माण कार्य में काम करता है",
+          "mr": "बांधकाम क्षेत्रात काम करतो"
+        },
+        "askQuestionId": "q_occupation"
+      }
+    ],
+    "exclusions": []
+  },
+  "application": {
+    "modes": [
+      {
+        "type": "ONLINE",
+        "url": "https://mahabocw.in/"
+      },
+      {
+        "type": "OFFLINE",
+        "officeTypes": [
+          "BOCW_FACILITATION_CENTRE"
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "en": "Collect the documents listed for this scheme.",
+        "hi": "इस योजना के लिए सूचीबद्ध दस्तावेज़ इकट्ठा करें।",
+        "mr": "या योजनेसाठी सूचीतील कागदपत्रे गोळा करा."
+      },
+      {
+        "en": "Apply on the official portal, or at the nearest help centre. It is free.",
+        "hi": "आधिकारिक पोर्टल पर या नज़दीकी सहायता केंद्र पर आवेदन करें। यह निःशुल्क है।",
+        "mr": "अधिकृत पोर्टलवर किंवा जवळच्या मदत केंद्रात अर्ज करा. हे मोफत आहे."
+      },
+      {
+        "en": "Save your reference number and track it in Adhikar Mitra.",
+        "hi": "अपना संदर्भ क्रमांक सहेजें और अधिकार मित्र में ट्रैक करें।",
+        "mr": "तुमचा संदर्भ क्रमांक जतन करा आणि अधिकार मित्र मध्ये मागोवा घ्या."
+      }
+    ],
+    "deadline": null
+  },
+  "verified": false,
+  "lastVerified": null
+}

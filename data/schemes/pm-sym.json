@@ -1,0 +1,146 @@
+{
+  "level": "CENTRAL",
+  "target": "MEMBER",
+  "id": "pm-sym",
+  "name": {
+    "en": "PM Shram Yogi Maan-dhan",
+    "hi": "पीएम श्रम योगी मान-धन",
+    "mr": "पीएम श्रम योगी मान-धन"
+  },
+  "summary": {
+    "en": "Monthly pension after 60 for unorganised workers.",
+    "hi": "असंगठित कामगारों के लिए 60 वर्ष के बाद मासिक पेंशन।",
+    "mr": "असंघटित कामगारांसाठी ६० नंतर मासिक पेन्शन."
+  },
+  "department": "Ministry of Labour & Employment",
+  "category": "PENSION",
+  "benefit": {
+    "type": "CASH_RECURRING",
+    "estimatedAnnualINR": 1200,
+    "description": {
+      "en": "Government matching contribution; pension starts at 60 (estimated).",
+      "hi": "सरकारी समान अंशदान; 60 वर्ष पर पेंशन (अनुमानित)।",
+      "mr": "सरकारचे समान योगदान; ६० वर्षांनंतर पेन्शन (अंदाजे)."
+    }
+  },
+  "requiredDocuments": [
+    "aadhaar",
+    "bank-account-aadhaar-seeded"
+  ],
+  "sourceUrls": [
+    "https://maandhan.in/"
+  ],
+  "eligibility": {
+    "all": [
+      {
+        "id": "age-range",
+        "field": "member.age",
+        "op": "between",
+        "value": [
+          18,
+          40
+        ],
+        "label": {
+          "en": "Age between 18 and 40",
+          "hi": "आयु 18 से 40 के बीच",
+          "mr": "वय 18 ते 40 दरम्यान"
+        },
+        "askQuestionId": "q_dob",
+        "note": "VERIFY"
+      },
+      {
+        "id": "unorganised",
+        "field": "member.occupation",
+        "op": "in",
+        "value": [
+          "farmer",
+          "agri-labourer",
+          "daily-wage",
+          "construction",
+          "domestic-worker",
+          "street-vendor",
+          "artisan"
+        ],
+        "label": {
+          "en": "Works in the unorganised sector",
+          "hi": "असंगठित क्षेत्र में काम करता है",
+          "mr": "असंघटित क्षेत्रात काम करतो/करते"
+        },
+        "askQuestionId": "q_occupation"
+      },
+      {
+        "id": "monthly-income",
+        "field": "household.annualIncomeINR",
+        "op": "lte",
+        "value": 180000,
+        "label": {
+          "en": "Income within the limit",
+          "hi": "आय सीमा के भीतर है",
+          "mr": "उत्पन्न मर्यादेत आहे"
+        },
+        "askQuestionId": "q_income",
+        "note": "VERIFY"
+      },
+      {
+        "id": "bank",
+        "field": "member.hasBankAccount",
+        "op": "eq",
+        "value": true,
+        "label": {
+          "en": "Has a bank account",
+          "hi": "बैंक खाता है",
+          "mr": "बँक खाते आहे"
+        },
+        "askQuestionId": "q_bank"
+      }
+    ],
+    "exclusions": [
+      {
+        "id": "taxpayer",
+        "field": "member.isIncomeTaxPayer",
+        "op": "eq",
+        "value": true,
+        "label": {
+          "en": "Income tax payers are not eligible",
+          "hi": "आयकर दाता पात्र नहीं हैं",
+          "mr": "आयकर भरणारे पात्र नाहीत"
+        },
+        "askQuestionId": "q_tax"
+      }
+    ]
+  },
+  "application": {
+    "modes": [
+      {
+        "type": "ONLINE",
+        "url": "https://maandhan.in/"
+      },
+      {
+        "type": "OFFLINE",
+        "officeTypes": [
+          "CSC"
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "en": "Collect the documents listed for this scheme.",
+        "hi": "इस योजना के लिए सूचीबद्ध दस्तावेज़ इकट्ठा करें।",
+        "mr": "या योजनेसाठी सूचीतील कागदपत्रे गोळा करा."
+      },
+      {
+        "en": "Apply on the official portal, or at the nearest help centre. It is free.",
+        "hi": "आधिकारिक पोर्टल पर या नज़दीकी सहायता केंद्र पर आवेदन करें। यह निःशुल्क है।",
+        "mr": "अधिकृत पोर्टलवर किंवा जवळच्या मदत केंद्रात अर्ज करा. हे मोफत आहे."
+      },
+      {
+        "en": "Save your reference number and track it in Adhikar Mitra.",
+        "hi": "अपना संदर्भ क्रमांक सहेजें और अधिकार मित्र में ट्रैक करें।",
+        "mr": "तुमचा संदर्भ क्रमांक जतन करा आणि अधिकार मित्र मध्ये मागोवा घ्या."
+      }
+    ],
+    "deadline": null
+  },
+  "verified": false,
+  "lastVerified": null
+}

@@ -1,0 +1,169 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite" // switch to "postgresql" (Neon / Supabase) for production; see README
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String      @id @default(cuid())
+  phone           String      @unique // shown masked in the UI
+  role            String      @default("CITIZEN") // CITIZEN | SAHAYAK | ADMIN
+  preferredLocale String      @default("mr")
+  largeText       Boolean     @default(false)
+  createdAt       DateTime    @default(now())
+  households      Household[] @relation("CreatedBy")
+  assigned        Household[] @relation("AssignedSahayak")
+  notifications   Notification[]
+}
+
+model Consent {
+  id          String      @id @default(cuid())
+  method      String // self | verbal-via-sahayak
+  recordedBy  String?
+  at          DateTime    @default(now())
+  revokedAt   DateTime?
+  households  Household[]
+}
+
+model Household {
+  id                        String   @id @default(cuid())
+  district                  String
+  wardId                    String?
+  village                   String?
+  areaType                  String // URBAN | RURAL
+  rationCardType            String?
+  annualIncomeINR           Int?
+  landHoldingAcres          Float?
+  houseType                 String?
+  hasLpgConnection          Boolean?
+  yearsResidentInMaharashtra Int?
+  createdByUserId           String?
+  sahayakId                 String?
+  consentId                 String?
+  clientId                  String?  @unique // idempotency key from the offline client
+  createdBy                 User?    @relation("CreatedBy", fields: [createdByUserId], references: [id])
+  sahayak                   User?    @relation("AssignedSahayak", fields: [sahayakId], references: [id])
+  consent                   Consent? @relation(fields: [consentId], references: [id])
+  members                   Member[]
+  documents                 HeldDocument[]
+  applications              Application[]
+  lifeEvents                LifeEvent[]
+  notifications             Notification[]
+}
+
+model Member {
+  id                    String   @id @default(cuid())
+  householdId           String
+  name                  String
+  dob                   String
+  gender                String?
+  relation              String?
+  maritalStatus         String?
+  isPregnantOrLactating Boolean?
+  occupation            String?
+  educationClass        Int?
+  casteCategory         String?
+  disabilityPercent     Int?
+  hasBankAccount        Boolean?
+  bankAadhaarSeeded     Boolean?
+  isIncomeTaxPayer      Boolean?
+  household             Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  documents             HeldDocument[]
+  applications          Application[]
+  lifeEvents            LifeEvent[]
+}
+
+model HeldDocument {
+  id                String    @id @default(cuid())
+  memberId          String?
+  householdId       String?
+  documentTypeId    String
+  nameOnDocument    String?
+  dobOnDocument     String?
+  genderOnDocument  String?
+  issuedOn          DateTime?
+  expiresOn         DateTime?
+  aadhaarLast4      String? // never the full number
+  status            String    @default("held") // held | applied | missing
+  member            Member?    @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  household         Household? @relation(fields: [householdId], references: [id], onDelete: Cascade)
+}
+
+model Application {
+  id              String   @id @default(cuid())
+  householdId     String
+  memberId        String?
+  schemeId        String
+  status          String   @default("NOT_STARTED")
+  referenceNumber String?
+  submittedOn     DateTime?
+  deadline        DateTime?
+  nextAction      String?
+  household       Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  member          Member?   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  events          ApplicationEvent[]
+}
+
+model ApplicationEvent {
+  id            String      @id @default(cuid())
+  applicationId String
+  fromStatus    String?
+  toStatus      String
+  note          String?
+  at            DateTime    @default(now())
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+model Notification {
+  id          String    @id @default(cuid())
+  userId      String?
+  householdId String?
+  channel     String // SMS | IN_APP
+  locale      String
+  body        String
+  kind        String // deadline | missing-doc | expiring-doc | new-eligibility | camp | status
+  sentAt      DateTime  @default(now())
+  readAt      DateTime?
+  user        User?      @relation(fields: [userId], references: [id])
+  household   Household? @relation(fields: [householdId], references: [id], onDelete: Cascade)
+}
+
+model LifeEvent {
+  id              String   @id @default(cuid())
+  householdId     String
+  memberId        String?
+  type            String
+  occurredOn      String
+  eligibilityDiff String // JSON
+  household       Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  member          Member?   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+}
+
+model CampEvent {
+  id                 String   @id @default(cuid())
+  wardId             String
+  title              String
+  focusDocumentTypeId String
+  date               String
+  location           String
+}
+
+model SyncRecord {
+  id             String   @id @default(cuid())
+  idempotencyKey String   @unique
+  sahayakId      String
+  payloadHash    String
+  syncedAt       DateTime @default(now())
+}
+
+model AuditLog {
+  id       String   @id @default(cuid())
+  actorId  String?
+  action   String
+  entity   String
+  entityId String?
+  at       DateTime @default(now())
+}

@@ -1,0 +1,123 @@
+{
+  "level": "CENTRAL",
+  "target": "MEMBER",
+  "id": "pmmvy",
+  "name": {
+    "en": "PM Matru Vandana Yojana",
+    "hi": "प्रधानमंत्री मातृ वंदना योजना",
+    "mr": "प्रधानमंत्री मातृ वंदना योजना"
+  },
+  "summary": {
+    "en": "Cash support for pregnant and nursing mothers.",
+    "hi": "गर्भवती और स्तनपान कराने वाली माताओं को नकद सहायता।",
+    "mr": "गर्भवती व स्तनदा मातांना रोख मदत."
+  },
+  "department": "Ministry of Women & Child Development",
+  "category": "WOMEN",
+  "benefit": {
+    "type": "CASH_ONE_TIME",
+    "estimatedAnnualINR": 5000,
+    "description": {
+      "en": "One-time instalments (estimated).",
+      "hi": "एकमुश्त किस्तें (अनुमानित)।",
+      "mr": "एकरकमी हप्ते (अंदाजे)."
+    }
+  },
+  "requiredDocuments": [
+    "aadhaar",
+    "mch-card",
+    "bank-account-aadhaar-seeded"
+  ],
+  "sourceUrls": [
+    "https://pmmvy.wcd.gov.in/"
+  ],
+  "eligibility": {
+    "all": [
+      {
+        "id": "female",
+        "field": "member.gender",
+        "op": "eq",
+        "value": "F",
+        "label": {
+          "en": "Applicant is a woman",
+          "hi": "आवेदक महिला है",
+          "mr": "अर्जदार महिला आहे"
+        },
+        "askQuestionId": "q_gender"
+      },
+      {
+        "id": "age",
+        "field": "member.age",
+        "op": "gte",
+        "value": 19,
+        "label": {
+          "en": "Age 19 or more",
+          "hi": "आयु 19 वर्ष या अधिक",
+          "mr": "वय १९ किंवा अधिक"
+        },
+        "askQuestionId": "q_dob",
+        "note": "VERIFY"
+      },
+      {
+        "id": "pregnant",
+        "field": "member.isPregnantOrLactating",
+        "op": "eq",
+        "value": true,
+        "label": {
+          "en": "Pregnant or nursing",
+          "hi": "गर्भवती या स्तनपान कराने वाली",
+          "mr": "गर्भवती किंवा स्तनदा"
+        },
+        "askQuestionId": "q_pregnant"
+      }
+    ],
+    "exclusions": [
+      {
+        "id": "govt-employee",
+        "field": "member.occupation",
+        "op": "eq",
+        "value": "govt-employee",
+        "label": {
+          "en": "Government employees are not eligible",
+          "hi": "सरकारी कर्मचारी पात्र नहीं हैं",
+          "mr": "सरकारी कर्मचारी पात्र नाहीत"
+        },
+        "askQuestionId": "q_occupation"
+      }
+    ]
+  },
+  "application": {
+    "modes": [
+      {
+        "type": "ONLINE",
+        "url": "https://pmmvy.wcd.gov.in/"
+      },
+      {
+        "type": "OFFLINE",
+        "officeTypes": [
+          "ANGANWADI"
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "en": "Collect the documents listed for this scheme.",
+        "hi": "इस योजना के लिए सूचीबद्ध दस्तावेज़ इकट्ठा करें।",
+        "mr": "या योजनेसाठी सूचीतील कागदपत्रे गोळा करा."
+      },
+      {
+        "en": "Apply on the official portal, or at the nearest help centre. It is free.",
+        "hi": "आधिकारिक पोर्टल पर या नज़दीकी सहायता केंद्र पर आवेदन करें। यह निःशुल्क है।",
+        "mr": "अधिकृत पोर्टलवर किंवा जवळच्या मदत केंद्रात अर्ज करा. हे मोफत आहे."
+      },
+      {
+        "en": "Save your reference number and track it in Adhikar Mitra.",
+        "hi": "अपना संदर्भ क्रमांक सहेजें और अधिकार मित्र में ट्रैक करें।",
+        "mr": "तुमचा संदर्भ क्रमांक जतन करा आणि अधिकार मित्र मध्ये मागोवा घ्या."
+      }
+    ],
+    "deadline": null
+  },
+  "verified": false,
+  "lastVerified": null
+}

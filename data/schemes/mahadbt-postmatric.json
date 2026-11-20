@@ -1,0 +1,120 @@
+{
+  "level": "STATE",
+  "target": "MEMBER",
+  "state": "MH",
+  "id": "mahadbt-postmatric",
+  "name": {
+    "en": "Post-Matric Scholarship (MahaDBT)",
+    "hi": "पोस्ट-मैट्रिक छात्रवृत्ति (महाडीबीटी)",
+    "mr": "पोस्ट-मॅट्रिक शिष्यवृत्ती (महाडीबीटी)"
+  },
+  "summary": {
+    "en": "Scholarship for students after class 10 from eligible categories.",
+    "hi": "10वीं के बाद पात्र श्रेणियों के विद्यार्थियों को छात्रवृत्ति।",
+    "mr": "१०वी नंतर पात्र प्रवर्गातील विद्यार्थ्यांसाठी शिष्यवृत्ती."
+  },
+  "department": "Social Justice / Tribal / OBC Welfare Depts, Maharashtra",
+  "category": "STUDENT",
+  "benefit": {
+    "type": "CASH_RECURRING",
+    "estimatedAnnualINR": 8000,
+    "description": {
+      "en": "Yearly scholarship (estimated).",
+      "hi": "वार्षिक छात्रवृत्ति (अनुमानित)।",
+      "mr": "वार्षिक शिष्यवृत्ती (अंदाजे)."
+    }
+  },
+  "requiredDocuments": [
+    "aadhaar",
+    "caste-certificate",
+    "income-certificate",
+    "school-bonafide",
+    "bank-account-aadhaar-seeded"
+  ],
+  "sourceUrls": [
+    "https://mahadbt.maharashtra.gov.in/"
+  ],
+  "eligibility": {
+    "all": [
+      {
+        "id": "post-matric",
+        "field": "member.educationClass",
+        "op": "gte",
+        "value": 11,
+        "label": {
+          "en": "Studying in class 11 or above",
+          "hi": "कक्षा 11 या उससे ऊपर पढ़ रहा है",
+          "mr": "इयत्ता ११ किंवा पुढे शिकत आहे"
+        },
+        "askQuestionId": "q_class"
+      },
+      {
+        "id": "caste",
+        "field": "member.casteCategory",
+        "op": "in",
+        "value": [
+          "SC",
+          "ST",
+          "OBC",
+          "VJNT",
+          "SBC"
+        ],
+        "label": {
+          "en": "Belongs to an eligible category",
+          "hi": "पात्र श्रेणी से है",
+          "mr": "पात्र प्रवर्गातील आहे"
+        },
+        "askQuestionId": "q_caste",
+        "note": "VERIFY"
+      },
+      {
+        "id": "income",
+        "field": "household.annualIncomeINR",
+        "op": "lte",
+        "value": 250000,
+        "label": {
+          "en": "Family yearly income is within the limit",
+          "hi": "परिवार की वार्षिक आय सीमा के भीतर है",
+          "mr": "कुटुंबाचे वार्षिक उत्पन्न मर्यादेत आहे"
+        },
+        "askQuestionId": "q_income",
+        "note": "VERIFY"
+      }
+    ],
+    "exclusions": []
+  },
+  "application": {
+    "modes": [
+      {
+        "type": "ONLINE",
+        "url": "https://mahadbt.maharashtra.gov.in/"
+      },
+      {
+        "type": "OFFLINE",
+        "officeTypes": [
+          "COLLEGE_OFFICE"
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "en": "Collect the documents listed for this scheme.",
+        "hi": "इस योजना के लिए सूचीबद्ध दस्तावेज़ इकट्ठा करें।",
+        "mr": "या योजनेसाठी सूचीतील कागदपत्रे गोळा करा."
+      },
+      {
+        "en": "Apply on the official portal, or at the nearest help centre. It is free.",
+        "hi": "आधिकारिक पोर्टल पर या नज़दीकी सहायता केंद्र पर आवेदन करें। यह निःशुल्क है।",
+        "mr": "अधिकृत पोर्टलवर किंवा जवळच्या मदत केंद्रात अर्ज करा. हे मोफत आहे."
+      },
+      {
+        "en": "Save your reference number and track it in Adhikar Mitra.",
+        "hi": "अपना संदर्भ क्रमांक सहेजें और अधिकार मित्र में ट्रैक करें।",
+        "mr": "तुमचा संदर्भ क्रमांक जतन करा आणि अधिकार मित्र मध्ये मागोवा घ्या."
+      }
+    ],
+    "deadline": null
+  },
+  "verified": false,
+  "lastVerified": null
+}

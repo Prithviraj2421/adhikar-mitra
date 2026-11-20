@@ -1,0 +1,100 @@
+{
+  "level": "CENTRAL",
+  "target": "HOUSEHOLD",
+  "id": "pmay-g",
+  "name": {
+    "en": "PM Awas Yojana – Gramin",
+    "hi": "प्रधानमंत्री आवास योजना – ग्रामीण",
+    "mr": "प्रधानमंत्री आवास योजना – ग्रामीण"
+  },
+  "summary": {
+    "en": "Help to build a pucca house in a village.",
+    "hi": "गाँव में पक्का घर बनाने में सहायता।",
+    "mr": "गावात पक्के घर बांधण्यासाठी मदत."
+  },
+  "department": "Ministry of Rural Development",
+  "category": "HOUSING",
+  "benefit": {
+    "type": "CASH_ONE_TIME",
+    "estimatedAnnualINR": 24000,
+    "description": {
+      "en": "One-time assistance, shown here spread over 5 years (estimated).",
+      "hi": "एकमुश्त सहायता, यहाँ 5 वर्षों में बाँटकर (अनुमानित)।",
+      "mr": "एकरकमी मदत, येथे ५ वर्षांत विभागून (अंदाजे)."
+    }
+  },
+  "requiredDocuments": [
+    "aadhaar",
+    "ration-card",
+    "bank-account-aadhaar-seeded"
+  ],
+  "sourceUrls": [
+    "https://pmayg.nic.in/"
+  ],
+  "eligibility": {
+    "all": [
+      {
+        "id": "rural",
+        "field": "household.areaType",
+        "op": "eq",
+        "value": "RURAL",
+        "label": {
+          "en": "Family lives in a village",
+          "hi": "परिवार गाँव में रहता है",
+          "mr": "कुटुंब गावात राहते"
+        },
+        "askQuestionId": "q_area"
+      },
+      {
+        "id": "house",
+        "field": "household.houseType",
+        "op": "in",
+        "value": [
+          "KUTCHA",
+          "NONE"
+        ],
+        "label": {
+          "en": "No pucca house",
+          "hi": "पक्का घर नहीं है",
+          "mr": "पक्के घर नाही"
+        },
+        "askQuestionId": "q_house"
+      }
+    ],
+    "exclusions": []
+  },
+  "application": {
+    "modes": [
+      {
+        "type": "ONLINE",
+        "url": "https://pmayg.nic.in/"
+      },
+      {
+        "type": "OFFLINE",
+        "officeTypes": [
+          "GRAM_PANCHAYAT"
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "en": "Collect the documents listed for this scheme.",
+        "hi": "इस योजना के लिए सूचीबद्ध दस्तावेज़ इकट्ठा करें।",
+        "mr": "या योजनेसाठी सूचीतील कागदपत्रे गोळा करा."
+      },
+      {
+        "en": "Apply on the official portal, or at the nearest help centre. It is free.",
+        "hi": "आधिकारिक पोर्टल पर या नज़दीकी सहायता केंद्र पर आवेदन करें। यह निःशुल्क है।",
+        "mr": "अधिकृत पोर्टलवर किंवा जवळच्या मदत केंद्रात अर्ज करा. हे मोफत आहे."
+      },
+      {
+        "en": "Save your reference number and track it in Adhikar Mitra.",
+        "hi": "अपना संदर्भ क्रमांक सहेजें और अधिकार मित्र में ट्रैक करें।",
+        "mr": "तुमचा संदर्भ क्रमांक जतन करा आणि अधिकार मित्र मध्ये मागोवा घ्या."
+      }
+    ],
+    "deadline": null
+  },
+  "verified": false,
+  "lastVerified": null
+}
