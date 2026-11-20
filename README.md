@@ -21,13 +21,15 @@ Millions of families in urban slums and rural Vidarbha miss welfare benefits the
 | H | **Scam Shield**: "Official ✓" only for allow-listed hosts; paste any message to check it | `/scam-check`, `<SafeLink>` |
 | I | **Benefit Gap Map**: ward-level map of eligible-but-not-applied families and the top blocking document | `/admin` |
 
+Design: a "sunrise over Vidarbha" look (indigo + saffron), glass cards, an orbiting-benefits hero, progress rings, a journey-style document path, confetti when a document is marked held or a scheme unlocks, and a floating dock navigation; all motion respects reduced-motion settings.
+
 Plus Hindi / Marathi / English throughout, read-aloud, voice answers, large-text and high-contrast modes.
 
 ## Screenshots
 
-| Family Benefit Map | Document unlock path | Rejection decoder |
+| Landing | Family Benefit Map | Document unlock path |
 |---|---|---|
-| ![](docs/screenshots/04-family-benefit-map-mobile.png) | ![](docs/screenshots/06-document-unlock-path-mobile.png) | ![](docs/screenshots/10-rejection-decoder-mobile.png) |
+| ![](docs/screenshots/01-language-mobile.png) | ![](docs/screenshots/04-family-benefit-map-mobile.png) | ![](docs/screenshots/06-document-unlock-path-mobile.png) |
 
 | Unlock graph | Benefit Gap Map |
 |---|---|

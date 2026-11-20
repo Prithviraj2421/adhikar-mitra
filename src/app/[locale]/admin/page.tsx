@@ -60,6 +60,11 @@ export default function AdminPage() {
       date: campDate, location: `${ward.name} community hall (sample)`, notified: affected.length,
     };
     setState((x) => ({ ...x, camps: [...x.camps, camp] }));
+    // Also save a CampEvent row (best effort: the on-screen flow works even if the server is unreachable).
+    void fetch("/api/camps", {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ wardId: camp.wardId, title: camp.title, focusDocumentTypeId: camp.focusDocumentTypeId, date: camp.date, location: camp.location }),
+    }).catch(() => undefined);
     addNotifs(affected.map((f) => campNotif({ date: campDate, place: camp.location, docId: campDoc }, locale, f.id, id)));
     setCampMsg(t("ad.campCreated", { n: affected.length, ward: ward.name }));
   };
@@ -96,9 +101,9 @@ export default function AdminPage() {
           [t("ad.submitted"), String(data.totals.submitted), "tile-submitted"],
           [t("ad.approved"), String(data.totals.approved), "tile-approved"],
         ].map(([label, v, id], i) => (
-          <div key={id} className="card text-center" data-testid={id}>
-            <p className="muted text-sm">{label}</p>
-            <p className="text-2xl font-extrabold">{i === 1 ? <Rupees n={data.totals.valueINR} /> : v}</p>
+          <div key={id} className="dark-tile rise min-w-0 p-3 text-center sm:p-4" data-testid={id}>
+            <p className="text-sm font-semibold opacity-90">{label}</p>
+            <p className="break-words text-xl font-extrabold sm:text-3xl" style={{ textShadow: "0 2px 14px rgba(0,0,0,.3)" }}>{i === 1 ? <Rupees n={data.totals.valueINR} /> : v}</p>
           </div>
         ))}
       </section>

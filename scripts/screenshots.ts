@@ -36,6 +36,8 @@ async function run(size: (typeof SIZES)[number]) {
   await page.getByTestId("persona-shantabai").click();
   await page.waitForURL(/benefits/);
   await page.waitForTimeout(2200);
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(300);
   await shot("04-family-benefit-map");
 
   await page.getByTestId("scheme-sgny-shanta").click();

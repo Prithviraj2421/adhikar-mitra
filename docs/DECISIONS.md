@@ -19,3 +19,5 @@
     - Application status is entered by the user; there is no government sync (by design).
     - Rohan's "child entered class X" event produces no new scheme because none of the 18 seeded schemes opens at those classes; the diff correctly reports "no new schemes".
 12. **Git.** Work was committed locally then pushed to `https://github.com/Prithviraj2421/adhikar-mitra` (branch `main`).
+13. **Visual design.** Pure CSS + SVG (no animation library): aurora background, glass cards, gradient hero, orbit hero, progress rings, confetti via the Web Animations API. Dark mode follows the system setting; reduced-motion and high-contrast settings turn effects off. Accessibility re-audited with axe after the redesign (horizontal scroll strips are keyboard-focusable).
+14. **Camps are persisted.** The camp planner also saves a `CampEvent` row through `/api/camps` (best effort; the screen flow does not depend on the server).

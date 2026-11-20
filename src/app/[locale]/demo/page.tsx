@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { PageTitle, useFamily } from "@/components/ui";
 import { SmsPhone } from "@/components/SmsPhone";
+import { confetti } from "@/components/fx";
 import { generateHouseholds } from "@/lib/admin/synth";
 import { SCHEMES, schemeById } from "@/lib/data";
 import { PERSONAS, SHANTABAI } from "@/lib/demo/personas";
@@ -57,11 +58,16 @@ export default function DemoPage() {
   const member = family?.members.find((m) => m.id === (evMember || family.members[0]?.id));
   const days = toDays(state.asOfDate);
 
+  const show = (d: EligibilityDiff | null) => {
+    setDiff(d);
+    if (d && d.gained.length + d.upgraded.length > 0) confetti();
+  };
+
   const doEvent = () => {
     if (!family) return;
     const mid = evDef.needsMember ? (evMember || family.members[0]?.id) : undefined;
     const d = applyEvent({ type: evType, memberId: mid, value: evValue || (evDef.valueKind === "age" ? 60 : evDef.valueKind === "class" ? 8 : evDef.valueKind === "percent" ? 45 : evDef.valueKind === "occupation" ? "construction" : evDef.valueKind === "district" ? "Wardha" : undefined) }, locale);
-    setDiff(d);
+    show(d);
   };
 
   const Btn = ({ children, onClick, testid }: { children: React.ReactNode; onClick: () => void; testid?: string }) => (
@@ -89,15 +95,15 @@ export default function DemoPage() {
       <section className="card mb-4" aria-labelledby="tt">
         <h2 id="tt" className="mb-1 text-lg font-bold">⏳ {t("dm.timeTravel")}</h2>
         <p className="muted mb-2 text-sm">{t("dm.timeHelp")}</p>
-        <p className="mb-2 text-2xl font-extrabold" data-testid="asof">{state.asOfDate}</p>
+        <p className="grad-text mb-3 text-5xl font-extrabold tracking-tight" data-testid="asof">{state.asOfDate}</p>
         <input
           type="range" min={0} max={365 * 5} step={1} value={Math.max(0, days)} aria-label={t("dm.timeTravel")} data-testid="time-slider"
-          className="w-full" onChange={(e) => setDiff(travelTo(fromDays(Number(e.target.value)), locale))}
+          className="track w-full" onChange={(e) => show(travelTo(fromDays(Number(e.target.value)), locale))}
         />
         <div className="mt-2 flex flex-wrap gap-2">
           <button className="btn btn-ghost !min-h-[3rem] !text-base" onClick={() => patch({ asOfDate: DEMO_TODAY })}>{t("dm.today")}</button>
           <button className="btn btn-accent !min-h-[3rem] !text-base" data-testid="jump-60"
-            onClick={() => { loadPersona(SHANTABAI); patch({ asOfDate: DEMO_TODAY }); setDiff(travelTo("2028-03-14", locale)); }}>
+            onClick={() => { loadPersona(SHANTABAI); patch({ asOfDate: DEMO_TODAY }); show(travelTo("2028-03-14", locale)); }}>
             🎂 {t("dm.jump60")}
           </button>
         </div>

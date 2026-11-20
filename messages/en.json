@@ -433,5 +433,8 @@
   "set.deleteConfirm": "Delete all your data from this device? This cannot be undone.",
   "set.deleted": "All your data was deleted from this device.",
   "set.about": "About",
-  "set.honesty": "Synthetic demo data. Scheme rules are pending official verification. No government integration."
+  "set.honesty": "Synthetic demo data. Scheme rules are pending official verification. No government integration.",
+  "land.five": "5 gaps solved: discover · understand · documents · apply safely · follow through",
+  "ben.members": "Your family",
+  "ben.readyBar": "{a} of {b} benefits are ready to apply for"
 }

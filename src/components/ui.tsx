@@ -83,10 +83,13 @@ export function Disclaimer() {
 
 export function PageTitle({ title, sub, icon }: { title: string; sub?: string; icon?: string }) {
   return (
-    <header className="mb-4 flex items-start justify-between gap-3">
+    <header className="rise mb-4 flex items-start justify-between gap-3">
       <div>
-        <h1 className="text-2xl font-extrabold leading-tight">{icon && <span aria-hidden>{icon} </span>}{title}</h1>
-        {sub && <p className="muted mt-1">{sub}</p>}
+        <h1 className="text-[1.7rem] font-extrabold leading-tight">
+          {icon && <span aria-hidden className="mr-1 inline-flex h-11 w-11 items-center justify-center rounded-2xl align-middle text-2xl" style={{ background: "var(--accent-soft)" }}>{icon}</span>}
+          <span className="align-middle">{title}</span>
+        </h1>
+        {sub && <p className="muted mt-1 font-semibold">{sub}</p>}
       </div>
       <ReadAloud compact />
     </header>
@@ -145,11 +148,11 @@ export function CountUp({ value }: { value: number }) {
 
 export function CheckMark({ done }: { done: boolean }) {
   return done ? (
-    <span className="pop inline-flex h-7 w-7 items-center justify-center rounded-full" style={{ background: "var(--success)", color: "#fff" }}>
-      <Check aria-hidden size={18} />
+    <span className="pop inline-flex h-9 w-9 items-center justify-center rounded-full" style={{ background: "var(--grad-ok)", color: "#fff", boxShadow: "0 6px 14px -4px rgba(22,163,74,.7)" }}>
+      <Check aria-hidden size={22} strokeWidth={3} />
     </span>
   ) : (
-    <Square aria-hidden size={26} className="muted" />
+    <Square aria-hidden size={30} className="muted" />
   );
 }
 
