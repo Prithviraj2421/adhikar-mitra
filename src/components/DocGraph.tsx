@@ -118,7 +118,7 @@ export default function DocGraph({
   }, [plan, members, held, asOf, selected, l, t]);
 
   return (
-    <div style={{ height: 520 }} className="overflow-hidden rounded-3xl border-2" data-testid="doc-graph" role="img" aria-label={t("docs.graphAria")}>
+    <div style={{ height: 520 }} className="overflow-hidden rounded-3xl border-2" data-testid="doc-graph" role="group" aria-label={t("docs.graphAria")}>
       <ReactFlow
         nodes={nodes} edges={edges} fitView minZoom={0.3} nodesDraggable={false}
         onNodeClick={(_, n) => setSelected((s) => (s === n.id ? null : n.id))}

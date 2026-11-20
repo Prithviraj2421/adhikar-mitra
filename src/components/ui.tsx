@@ -122,17 +122,23 @@ export function Rupees({ n }: { n: number }) {
 /** Animated count-up for the hero number. */
 export function CountUp({ value }: { value: number }) {
   const [v, setV] = useState(0);
-  const raf = useRef(0);
+  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
   useEffect(() => {
-    const start = performance.now();
-    const from = 0;
-    const tick = (now: number) => {
-      const p = Math.min(1, (now - start) / 1200);
-      setV(Math.round(from + (value - from) * (1 - Math.pow(1 - p, 3))));
-      if (p < 1) raf.current = requestAnimationFrame(tick);
+    // Timer (not rAF) so the final number always appears, even in a background tab or with reduced motion.
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (document.hidden || reduce) {
+      setV(value);
+      return;
+    }
+    const start = Date.now();
+    timer.current = setInterval(() => {
+      const p = Math.min(1, (Date.now() - start) / 1200);
+      setV(Math.round(value * (1 - Math.pow(1 - p, 3))));
+      if (p >= 1 && timer.current) clearInterval(timer.current);
+    }, 30);
+    return () => {
+      if (timer.current) clearInterval(timer.current);
     };
-    raf.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf.current);
   }, [value]);
   return <span aria-label={`₹${value}`}><Rupees n={v} /></span>;
 }

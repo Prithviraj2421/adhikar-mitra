@@ -11,14 +11,15 @@
   --border: #e4e0d8;
   --primary: #3730a3;
   --primary-fg: #ffffff;
-  --accent: #ea580c;
+  --accent: #c2410c;
   --accent-soft: #fff1e6;
-  --success: #15803d;
+  --accent-fg: #ffffff;
+  --success: #166534;
   --success-soft: #e6f4ea;
   --danger: #b91c1c;
   --danger-soft: #fdecec;
   --warn-soft: #fff7d6;
-  --ring: #ea580c;
+  --ring: #c2410c;
 }
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
@@ -30,6 +31,7 @@
     --primary: #a5b4fc;
     --primary-fg: #12111f;
     --accent: #fb923c;
+    --accent-fg: #1c1b2e;
     --accent-soft: #3a2415;
     --success: #4ade80;
     --success-soft: #12301d;
@@ -45,7 +47,7 @@
   --muted: #1a1a1a;
   --border: #000000;
   --primary: #1e1b8a;
-  --accent: #b34000;
+  --accent: #9a3412;
   --success: #0b5a1f;
   --danger: #8f0000;
 }
@@ -67,7 +69,7 @@ body {
     @apply inline-flex min-h-[3.5rem] min-w-[3.5rem] items-center justify-center gap-2 rounded-2xl px-6 text-lg font-semibold transition active:scale-[.98] disabled:opacity-50;
   }
   .btn-primary { background: var(--primary); color: var(--primary-fg); }
-  .btn-accent { background: var(--accent); color: #fff; }
+  .btn-accent { background: var(--accent); color: var(--accent-fg); }
   .btn-ghost { border: 2px solid var(--border); background: var(--card); }
   .chip { @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm font-medium; background: var(--accent-soft); }
   .muted { color: var(--muted); }

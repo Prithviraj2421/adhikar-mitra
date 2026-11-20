@@ -58,14 +58,14 @@ export function generateHouseholds(asOf = "2026-11-20"): SynthHousehold[] {
       const occ = rural && household.landHoldingAcres! > 0 ? "farmer" : pick(OCC);
       const caste = pick(CASTES);
       members.push({
-        id: `${id}-m1`, name: "Head", dob: dob(headAge), gender: headFemale ? "F" : "M", relation: "SELF",
+        id: `${id}-m1`, name: "Head", dob: dob(headAge), gender: headFemale ? "F" : "M", relation: "SELF", educationClass: 0,
         maritalStatus: headFemale && rnd() < 0.45 ? "WIDOWED" : "MARRIED", occupation: occ, casteCategory: caste,
         hasBankAccount: true, bankAadhaarSeeded: rnd() > w.missingSeeding, isIncomeTaxPayer: false, isPregnantOrLactating: false,
       });
       if (rnd() < 0.75 && members[0].maritalStatus === "MARRIED") {
         members.push({
           id: `${id}-m2`, name: "Spouse", dob: dob(headAge - 2), gender: headFemale ? "M" : "F", relation: "SPOUSE",
-          maritalStatus: "MARRIED", occupation: headFemale ? occ : "homemaker", casteCategory: caste, hasBankAccount: true,
+          maritalStatus: "MARRIED", educationClass: 0, occupation: headFemale ? occ : "homemaker", casteCategory: caste, hasBankAccount: true,
           bankAadhaarSeeded: rnd() > w.missingSeeding, isIncomeTaxPayer: false, isPregnantOrLactating: rnd() < 0.08,
         });
       }
@@ -81,7 +81,7 @@ export function generateHouseholds(asOf = "2026-11-20"): SynthHousehold[] {
       if (rnd() < 0.2) {
         members.push({
           id: `${id}-e1`, name: "Elder", dob: dob(60 + Math.floor(rnd() * 20)), gender: rnd() < 0.6 ? "F" : "M", relation: "PARENT",
-          maritalStatus: "WIDOWED", occupation: "unemployed", casteCategory: caste, hasBankAccount: true,
+          maritalStatus: "WIDOWED", educationClass: 0, occupation: "unemployed", casteCategory: caste, hasBankAccount: true,
           bankAadhaarSeeded: rnd() > w.missingSeeding, isIncomeTaxPayer: false, isPregnantOrLactating: false,
         });
       }

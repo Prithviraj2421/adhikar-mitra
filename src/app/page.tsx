@@ -1,6 +1,7 @@
 "use client";
 import { Volume2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { APP } from "@/config/app";
 import { LOCALES, LOCALE_NAMES, translate, type Locale } from "@/lib/i18n";
 import { patch, useAppState } from "@/lib/store";
@@ -10,6 +11,9 @@ import { speak } from "@/lib/voice";
 export default function LanguagePage() {
   const router = useRouter();
   const s = useAppState();
+  useEffect(() => {
+    document.body.dataset.hydrated = "1"; // end-to-end tests wait for this
+  }, []);
   const choose = (l: Locale) => {
     patch({ locale: l });
     const hasFamily = s.consent && s.families.length > 0;

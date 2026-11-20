@@ -40,3 +40,7 @@ next-env.d.ts
 *.db-journal
 .env
 
+
+# test output
+test-results/
+playwright-report/

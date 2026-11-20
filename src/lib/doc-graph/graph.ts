@@ -89,6 +89,9 @@ export function obtainSet(key: string, docs: DocumentType[], held: Set<string>):
     for (const p of d.prerequisites) {
       const pd = docById.get(p);
       if (!pd) continue;
+      // A household-level document (e.g. income certificate) needs *someone's* Aadhaar, not a specific member's:
+      // if any family member already holds the member-level prerequisite, it is satisfied.
+      if (pd.scope === "member" && memberId === null && [...held].some((h) => h.startsWith(`${p}|`))) continue;
       visit(slotKey(p, pd.scope === "household" ? null : memberId));
     }
     out.push(k); // post-order => prerequisites come first

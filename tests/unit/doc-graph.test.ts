@@ -42,6 +42,16 @@ describe("Ramesh", () => {
     expect(schemesUnlocked).toEqual(expect.arrayContaining(["ladki-bahin", "mjpjay"]));
     expect(p.top!.partial.map((n) => n.schemeId)).toContain("mahadbt-postmatric");
   });
+  it("household documents do not demand a per-member Aadhaar when someone already holds one", () => {
+    const p = plan(RAMESH);
+    expect(p.top!.obtain).toEqual(["income-certificate|-"]);
+    expect(p.top!.effortDays).toBe(7);
+  });
+  it("adults with no school class do not create scholarship needs", () => {
+    const p = plan(RAMESH);
+    const members = new Set(p.needs.filter((n) => n.schemeId === "mahadbt-postmatric").map((n) => n.memberId));
+    expect([...members]).toEqual(["priya"]);
+  });
   it("path eventually makes everything ready", () => {
     const p = plan(RAMESH);
     const docsInPath = p.path.map((s) => s.documentTypeId);

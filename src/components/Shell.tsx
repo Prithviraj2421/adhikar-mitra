@@ -19,6 +19,10 @@ export function Shell({ children }: { children: ReactNode }) {
   }, [s.largeText, s.highContrast]);
 
   useEffect(() => {
+    document.body.dataset.hydrated = "1"; // lets end-to-end tests wait until click handlers are attached
+  }, []);
+
+  useEffect(() => {
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       navigator.serviceWorker.register("/sw.js").catch(() => undefined);
     }
@@ -52,7 +56,7 @@ export function Shell({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-dvh flex-col">
       {APP.demoMode && (
-        <div className="px-3 py-1 text-center text-xs font-bold tracking-widest text-white" style={{ background: "var(--accent)" }} role="status">
+        <div className="px-3 py-1 text-center text-xs font-bold tracking-widest" style={{ background: "var(--accent)", color: "var(--accent-fg)" }} role="status">
           {t("demo.ribbon")}
         </div>
       )}

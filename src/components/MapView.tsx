@@ -12,7 +12,8 @@ export default function MapView({
   points, height = 320, center = [21.1458, 79.0882], zoom = 11, ariaLabel,
 }: { points: MapPoint[]; height?: number; center?: [number, number]; zoom?: number; ariaLabel: string }) {
   return (
-    <div style={{ height }} className="overflow-hidden rounded-3xl border-2" role="region" aria-label={ariaLabel} data-testid="map">
+    // `isolate` keeps Leaflet's high z-index panes below the fixed bottom navigation.
+    <div style={{ height }} className="isolate overflow-hidden rounded-3xl border-2" role="region" aria-label={ariaLabel} data-testid="map">
       <MapContainer center={center} zoom={zoom} style={{ height: "100%", width: "100%" }} scrollWheelZoom={false}>
         <TileLayer attribution='&copy; OpenStreetMap contributors' url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {points.map((p) => (

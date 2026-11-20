@@ -45,7 +45,7 @@ export function applyEvent(ev: LifeEventInput, locale: Locale): EligibilityDiff 
   const s = getState();
   const family = s.families.find((f) => f.id === s.activeId);
   if (!family) return null;
-  let asOf = s.asOfDate;
+  const asOf = s.asOfDate;
   const member = family.members.find((m) => m.id === ev.memberId);
   // "Turns age X" moves the clock to that birthday: nothing else in the data changes.
   if (ev.type === "TURNS_AGE" && member) {
@@ -57,7 +57,6 @@ export function applyEvent(ev: LifeEventInput, locale: Locale): EligibilityDiff 
   addNotifs(notifyGained(family, diff, locale, asOf));
   const label = LIFE_EVENT_TYPES.find((x) => x.id === ev.type)!.label[locale];
   logLife(`${label}${member ? ` · ${member.name.split(" ")[0]}` : ""}: ${diff.gained.length} ${translate(locale, "le.newSchemes")}`, asOf);
-  asOf = s.asOfDate;
   return diff;
 }
 

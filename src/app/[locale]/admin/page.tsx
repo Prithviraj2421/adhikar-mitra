@@ -5,7 +5,7 @@ import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAx
 import { PageTitle, Rupees } from "@/components/ui";
 import { SmsPhone } from "@/components/SmsPhone";
 import { WARDS, buildAdminData, generateHouseholds } from "@/lib/admin/synth";
-import { DOCUMENTS, SCHEMES, schemeById } from "@/lib/data";
+import { DOCUMENTS, schemeById } from "@/lib/data";
 import { useT } from "@/lib/i18n";
 import { campNotif } from "@/lib/notifications";
 import { addNotifs, setState, useAppState, type Camp } from "@/lib/store";
@@ -196,7 +196,6 @@ export default function AdminPage() {
         )}
         <div className="mt-4"><SmsPhone /></div>
       </section>
-      <span hidden>{SCHEMES.length}</span>
     </>
   );
 }
