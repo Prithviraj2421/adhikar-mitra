@@ -1,0 +1,81 @@
+{
+  "_note": "Heuristic patterns (case-insensitive regex) in English, Hindi and Marathi. They flag risk; they never prove a message is genuine.",
+  "patterns": [
+    {
+      "id": "payment", "severity": "DANGER",
+      "reason": {
+        "en": "Asks for money or a 'processing fee'. Government schemes never charge to apply.",
+        "hi": "पैसे या 'प्रोसेसिंग फीस' माँगता है। सरकारी योजनाओं में आवेदन के लिए शुल्क नहीं लगता।",
+        "mr": "पैसे किंवा 'प्रोसेसिंग फी' मागतो. सरकारी योजनांच्या अर्जासाठी शुल्क नसते."
+      },
+      "regex": ["processing fee", "registration fee", "application fee", "\\bpay\\s*(rs|₹|inr)", "(send|transfer|deposit)\\s+(rs\\.?|₹|money)", "प्रोसेसिंग फीस", "रजिस्ट्रेशन फीस", "शुल्क (जमा|भरें|भरा)", "पैसे (भेजें|जमा)", "प्रोसेसिंग फी", "नोंदणी शुल्क", "पैसे (पाठवा|भरा)"]
+    },
+    {
+      "id": "otp", "severity": "DANGER",
+      "reason": {
+        "en": "Asks for an OTP, PIN or password. Nobody genuine will ever ask for these.",
+        "hi": "ओटीपी, पिन या पासवर्ड माँगता है। असली अधिकारी कभी ये नहीं माँगते।",
+        "mr": "ओटीपी, पिन किंवा पासवर्ड मागतो. खरे अधिकारी कधीही हे मागत नाहीत."
+      },
+      "regex": ["\\botp\\b", "\\bpin\\b", "password", "\\bcvv\\b", "ओटीपी", "पिन", "पासवर्ड", "सीवीवी"]
+    },
+    {
+      "id": "install-app", "severity": "DANGER",
+      "reason": {
+        "en": "Asks you to install an app or APK file. This can steal your bank details.",
+        "hi": "ऐप या APK फाइल इंस्टॉल करने को कहता है। इससे बैंक जानकारी चोरी हो सकती है।",
+        "mr": "अॅप किंवा APK फाइल इन्स्टॉल करण्यास सांगतो. यामुळे बँक माहिती चोरीला जाऊ शकते."
+      },
+      "regex": ["install\\s+(the\\s+)?app", "download\\s+(the\\s+)?(app|apk)", "\\.apk\\b", "ऐप\\s*इंस्टॉल", "अॅप\\s*इन्स्टॉल", "apk\\s*डाउनलोड"]
+    },
+    {
+      "id": "urgency", "severity": "WARN",
+      "reason": {
+        "en": "Pressures you to act immediately. Scammers use urgency so you do not think.",
+        "hi": "तुरंत कार्रवाई का दबाव बनाता है। ठग जल्दबाज़ी कराते हैं ताकि आप सोच न सकें।",
+        "mr": "लगेच कृती करण्याचा दबाव टाकतो. फसवणूक करणारे घाई करवतात."
+      },
+      "regex": ["urgent", "immediately", "within 24 hours", "last date (is )?today", "(account|scheme).*(blocked|suspended|expire)", "तुरंत", "आज ही", "बंद हो जाएगा", "लगेच", "आजच", "ब्लॉक"]
+    },
+    {
+      "id": "prize-bait", "severity": "WARN",
+      "reason": {
+        "en": "Promises a prize, free money or a guaranteed benefit. Be careful.",
+        "hi": "इनाम, मुफ्त पैसे या पक्के लाभ का वादा करता है। सावधान रहें।",
+        "mr": "बक्षीस, मोफत पैसे किंवा हमखास लाभाचे आश्वासन देतो. सावध रहा."
+      },
+      "regex": ["lottery", "you have won", "claim your (prize|reward)", "guaranteed (loan|benefit)", "लॉटरी", "आप जीत", "बधाई", "बक्षीस", "तुम्ही जिंकला"]
+    },
+    {
+      "id": "claims-official", "severity": "INFO",
+      "reason": {
+        "en": "Mentions the government or a scheme.",
+        "hi": "सरकार या योजना का उल्लेख करता है।",
+        "mr": "सरकार किंवा योजनेचा उल्लेख करतो."
+      },
+      "regex": ["government", "sarkar", "yojana", "scheme", "subsidy", "pension", "सरकार", "योजना", "पेंशन", "अनुदान"]
+    }
+  ],
+  "linkReasons": {
+    "shortener": {
+      "en": "Uses a shortened link that hides where it goes.",
+      "hi": "छोटा लिंक इस्तेमाल करता है जो असली पता छिपाता है।",
+      "mr": "लहान लिंक वापरतो जी खरा पत्ता लपवते."
+    },
+    "not-official": {
+      "en": "The link is not on a verified official government website.",
+      "hi": "यह लिंक सत्यापित आधिकारिक सरकारी वेबसाइट का नहीं है।",
+      "mr": "ही लिंक सत्यापित अधिकृत सरकारी वेबसाइटची नाही."
+    },
+    "fake-official": {
+      "en": "The website name looks official, but it is not a government domain.",
+      "hi": "वेबसाइट का नाम सरकारी लगता है, पर यह सरकारी डोमेन नहीं है।",
+      "mr": "वेबसाइटचे नाव सरकारी वाटते, पण हे सरकारी डोमेन नाही."
+    },
+    "punycode": {
+      "en": "The web address uses look-alike characters (punycode), a common trick.",
+      "hi": "वेब पता मिलते-जुलते अक्षरों (प्यूनीकोड) का उपयोग करता है, जो आम चाल है।",
+      "mr": "वेब पत्त्यात मिळत्याजुळत्या अक्षरांचा (प्युनीकोड) वापर आहे, ही नेहमीची युक्ती आहे."
+    }
+  }
+}

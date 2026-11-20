@@ -1,0 +1,14 @@
+{
+  "_note": "Matched against the real hostname suffix only. Hosts below also match their subdomains. VERIFY the list before launch.",
+  "suffixes": [".gov.in", ".nic.in"],
+  "hosts": [
+    "maandhan.in",
+    "npscra.nsdl.co.in",
+    "pfrda.org.in",
+    "mahabocw.in",
+    "nsmny.mahait.org",
+    "mahait.org",
+    "uidai.gov.in"
+  ],
+  "shorteners": ["bit.ly", "tinyurl.com", "t.co", "cutt.ly", "goo.gl", "is.gd", "rb.gy", "tiny.cc", "shorturl.at", "ow.ly", "wa.me"]
+}

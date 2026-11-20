@@ -1,0 +1,155 @@
+[
+  {
+    "id": "aadhaar-not-seeded",
+    "patterns": {
+      "en": ["aadhaar.{0,40}(not|is not).{0,20}(seed|link|mapped)", "npci", "aadhaar seeding", "dbt.{0,20}(failed|not enabled)"],
+      "hi": ["आधार.{0,30}(सीड|लिंक|जुड़).{0,20}(नहीं|नही)", "सीडिंग"],
+      "mr": ["आधार.{0,30}(सीड|लिंक|जोड).{0,20}(नाही|नसल)", "सीडिंग"]
+    },
+    "explanation": {
+      "en": "Your bank account is not linked (seeded) with your Aadhaar, so the government cannot send money to it.",
+      "hi": "आपका बैंक खाता आधार से जुड़ा (सीड) नहीं है, इसलिए सरकार उसमें पैसे नहीं भेज सकती।",
+      "mr": "तुमचे बँक खाते आधारशी जोडलेले (सीड) नाही, म्हणून सरकार त्यात पैसे पाठवू शकत नाही."
+    },
+    "fixSteps": [
+      { "en": "Go to your bank branch with Aadhaar and passbook.", "hi": "आधार और पासबुक लेकर अपनी बैंक शाखा जाएँ।", "mr": "आधार आणि पासबुक घेऊन तुमच्या बँक शाखेत जा." },
+      { "en": "Ask the bank to link Aadhaar and enable DBT (NPCI mapping).", "hi": "बैंक से आधार जोड़ने और डीबीटी (एनपीसीआई मैपिंग) चालू करने को कहें।", "mr": "बँकेला आधार जोडण्यास आणि डीबीटी (एनपीसीआय मॅपिंग) सुरू करण्यास सांगा." },
+      { "en": "Re-apply or ask the office to re-process after 3 to 7 days.", "hi": "3 से 7 दिन बाद दोबारा आवेदन करें या कार्यालय से पुनः जाँच के लिए कहें।", "mr": "३ ते ७ दिवसांनी पुन्हा अर्ज करा किंवा कार्यालयाला पुनर्तपासणीस सांगा." }
+    ],
+    "relatedDocumentId": "bank-account-aadhaar-seeded",
+    "note": "VERIFY"
+  },
+  {
+    "id": "name-mismatch",
+    "patterns": {
+      "en": ["name.{0,30}(mismatch|does not match|not match|differ)", "mismatch in name"],
+      "hi": ["नाम.{0,30}(मेल नहीं|अलग|भिन्न|असमान)"],
+      "mr": ["नाव.{0,30}(जुळत नाही|वेगळे|भिन्न)"]
+    },
+    "explanation": {
+      "en": "The name on one document is spelled differently from another document.",
+      "hi": "एक दस्तावेज़ में नाम की वर्तनी दूसरे दस्तावेज़ से अलग है।",
+      "mr": "एका कागदपत्रावरील नावाचे स्पेलिंग दुसऱ्या कागदपत्रापेक्षा वेगळे आहे."
+    },
+    "fixSteps": [
+      { "en": "Find which document has the different spelling (use the Mismatch check).", "hi": "देखें किस दस्तावेज़ में अलग वर्तनी है (मिसमैच जाँच उपयोग करें)।", "mr": "कोणत्या कागदपत्रात वेगळे स्पेलिंग आहे ते पाहा (मिसमॅच तपासणी वापरा)." },
+      { "en": "Ask the issuing office or bank to correct it to match Aadhaar, or attach a name-correction affidavit if they accept it.", "hi": "जारी करने वाले कार्यालय या बैंक से आधार के अनुसार सुधार करवाएँ, या स्वीकार हो तो नाम-सुधार शपथपत्र लगाएँ।", "mr": "जारी करणाऱ्या कार्यालयाकडून किंवा बँकेकडून आधारनुसार दुरुस्ती करा, किंवा स्वीकारल्यास नाव-दुरुस्ती प्रतिज्ञापत्र जोडा." }
+    ],
+    "relatedDocumentId": "aadhaar",
+    "note": "VERIFY"
+  },
+  {
+    "id": "income-cert-expired",
+    "patterns": {
+      "en": ["income certificate.{0,40}(expired|old|validity|not valid)", "expired.{0,20}income"],
+      "hi": ["आय प्रमाणपत्र.{0,30}(समाप्त|पुराना|अवैध|वैधता)"],
+      "mr": ["उत्पन्नाचा दाखला.{0,30}(मुदत|जुना|अवैध|संपल)"]
+    },
+    "explanation": {
+      "en": "Your income certificate is too old or expired.",
+      "hi": "आपका आय प्रमाणपत्र बहुत पुराना या समाप्त हो चुका है।",
+      "mr": "तुमचा उत्पन्नाचा दाखला खूप जुना किंवा मुदत संपलेला आहे."
+    },
+    "fixSteps": [
+      { "en": "Apply for a fresh income certificate at the Tehsil office or Aaple Sarkar Seva Kendra.", "hi": "तहसील कार्यालय या आपले सरकार सेवा केंद्र से नया आय प्रमाणपत्र बनवाएँ।", "mr": "तहसील कार्यालय किंवा आपले सरकार सेवा केंद्रातून नवीन उत्पन्नाचा दाखला काढा." },
+      { "en": "Upload the new certificate and re-apply.", "hi": "नया प्रमाणपत्र अपलोड करके दोबारा आवेदन करें।", "mr": "नवीन दाखला अपलोड करून पुन्हा अर्ज करा." }
+    ],
+    "relatedDocumentId": "income-certificate",
+    "note": "VERIFY"
+  },
+  {
+    "id": "illegible-document",
+    "patterns": {
+      "en": ["illegible", "not (clear|readable)", "blurred", "unclear (scan|copy|image)"],
+      "hi": ["अस्पष्ट", "पढ़ने योग्य नहीं", "धुंधला"],
+      "mr": ["अस्पष्ट", "वाचता येत नाही", "धूसर"]
+    },
+    "explanation": {
+      "en": "A document you uploaded could not be read clearly.",
+      "hi": "आपका अपलोड किया दस्तावेज़ साफ़ पढ़ा नहीं जा सका।",
+      "mr": "तुम्ही अपलोड केलेले कागदपत्र स्पष्ट वाचता आले नाही."
+    },
+    "fixSteps": [
+      { "en": "Take a new photo in good light, flat on a table, all four corners visible.", "hi": "अच्छी रोशनी में, मेज़ पर सीधा रखकर, चारों कोने दिखाते हुए नई फोटो लें।", "mr": "चांगल्या उजेडात, टेबलावर सपाट ठेवून, चारही कोपरे दिसतील अशी नवीन फोटो घ्या." },
+      { "en": "Upload again, or submit the paper copy at the help centre.", "hi": "फिर अपलोड करें, या सहायता केंद्र में कागज़ी प्रति जमा करें।", "mr": "पुन्हा अपलोड करा, किंवा मदत केंद्रात कागदी प्रत जमा करा." }
+    ],
+    "relatedDocumentId": null,
+    "note": "VERIFY"
+  },
+  {
+    "id": "not-domiciled",
+    "patterns": {
+      "en": ["domicile", "not a resident of maharashtra", "residence proof", "not (a )?resident"],
+      "hi": ["अधिवास", "निवास प्रमाण", "महाराष्ट्र का निवासी नहीं"],
+      "mr": ["अधिवास", "रहिवासी पुरावा", "महाराष्ट्राचे रहिवासी नाही"]
+    },
+    "explanation": {
+      "en": "You could not show that you have lived in Maharashtra for the required years.",
+      "hi": "आप आवश्यक वर्षों से महाराष्ट्र में रह रहे हैं, यह दिखाया नहीं जा सका।",
+      "mr": "आवश्यक वर्षांपासून महाराष्ट्रात राहत असल्याचे दाखवता आले नाही."
+    },
+    "fixSteps": [
+      { "en": "Get a domicile certificate from the Tehsil office.", "hi": "तहसील कार्यालय से अधिवास प्रमाणपत्र बनवाएँ।", "mr": "तहसील कार्यालयातून अधिवास प्रमाणपत्र काढा." },
+      { "en": "Attach it and re-apply.", "hi": "इसे लगाकर दोबारा आवेदन करें।", "mr": "ते जोडून पुन्हा अर्ज करा." }
+    ],
+    "relatedDocumentId": "domicile-certificate",
+    "note": "VERIFY"
+  },
+  {
+    "id": "duplicate-application",
+    "patterns": {
+      "en": ["duplicate", "already (applied|registered|exists)", "application already"],
+      "hi": ["डुप्लिकेट", "पहले से (आवेदन|पंजीकृत)"],
+      "mr": ["डुप्लिकेट", "आधीच (अर्ज|नोंदणी)"]
+    },
+    "explanation": {
+      "en": "An application for this scheme already exists for this person.",
+      "hi": "इस व्यक्ति के लिए इस योजना का आवेदन पहले से मौजूद है।",
+      "mr": "या व्यक्तीसाठी या योजनेचा अर्ज आधीच अस्तित्वात आहे."
+    },
+    "fixSteps": [
+      { "en": "Check the status of your earlier application instead of applying again.", "hi": "दोबारा आवेदन करने के बजाय पहले वाले आवेदन की स्थिति देखें।", "mr": "पुन्हा अर्ज करण्याऐवजी आधीच्या अर्जाची स्थिती तपासा." },
+      { "en": "If you never applied, visit the help centre with your Aadhaar.", "hi": "यदि आपने कभी आवेदन नहीं किया, तो आधार लेकर सहायता केंद्र जाएँ।", "mr": "तुम्ही कधी अर्ज केला नसेल तर आधार घेऊन मदत केंद्रात जा." }
+    ],
+    "relatedDocumentId": null,
+    "note": "VERIFY"
+  },
+  {
+    "id": "income-above-limit",
+    "patterns": {
+      "en": ["income.{0,40}(exceed|above|more than|higher)", "exceeds (the )?income"],
+      "hi": ["आय.{0,30}(अधिक|ज़्यादा|सीमा से ऊपर)"],
+      "mr": ["उत्पन्न.{0,30}(जास्त|मर्यादेपेक्षा|अधिक)"]
+    },
+    "explanation": {
+      "en": "The income shown is above the limit for this scheme.",
+      "hi": "दिखाई गई आय इस योजना की सीमा से अधिक है।",
+      "mr": "दाखवलेले उत्पन्न या योजनेच्या मर्यादेपेक्षा जास्त आहे."
+    },
+    "fixSteps": [
+      { "en": "Check the income written on your certificate. If it is wrong, get it corrected at the Tehsil office.", "hi": "प्रमाणपत्र पर लिखी आय जाँचें। गलत हो तो तहसील कार्यालय में सुधार करवाएँ।", "mr": "दाखल्यावरील उत्पन्न तपासा. चुकीचे असल्यास तहसील कार्यालयात दुरुस्त करून घ्या." },
+      { "en": "If the income is correct, this scheme may not apply. Check other schemes in your Benefit Map.", "hi": "आय सही है तो यह योजना लागू नहीं हो सकती। अपने लाभ मानचित्र में अन्य योजनाएँ देखें।", "mr": "उत्पन्न बरोबर असल्यास ही योजना लागू नसू शकते. तुमच्या लाभ नकाशातील इतर योजना पाहा." }
+    ],
+    "relatedDocumentId": "income-certificate",
+    "note": "VERIFY"
+  },
+  {
+    "id": "incomplete-form",
+    "patterns": {
+      "en": ["incomplete", "missing (document|information|field)", "not (fully )?filled", "documents? (not|missing)"],
+      "hi": ["अधूरा", "दस्तावेज़.{0,20}(नहीं|अनुपलब्ध)", "जानकारी.{0,20}(छूट|अधूरी)"],
+      "mr": ["अपूर्ण", "कागदपत्र.{0,20}(नाही|अनुपलब्ध)", "माहिती.{0,20}(अपूर्ण|राहिली)"]
+    },
+    "explanation": {
+      "en": "The form or its documents were incomplete.",
+      "hi": "फॉर्म या उसके दस्तावेज़ अधूरे थे।",
+      "mr": "अर्ज किंवा त्याची कागदपत्रे अपूर्ण होती."
+    },
+    "fixSteps": [
+      { "en": "Open the document checklist for this scheme and complete every item.", "hi": "इस योजना की दस्तावेज़ सूची खोलकर हर वस्तु पूरी करें।", "mr": "या योजनेची कागदपत्र यादी उघडून प्रत्येक बाब पूर्ण करा." },
+      { "en": "Re-submit with all documents.", "hi": "सभी दस्तावेज़ों के साथ दोबारा जमा करें।", "mr": "सर्व कागदपत्रांसह पुन्हा सादर करा." }
+    ],
+    "relatedDocumentId": null,
+    "note": "VERIFY"
+  }
+]
