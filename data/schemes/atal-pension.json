@@ -15,7 +15,7 @@
   "department": "PFRDA / Ministry of Finance",
   "category": "PENSION",
   "benefit": {
-    "type": "CASH_RECURRING",
+    "type": "REGISTRATION",
     "estimatedAnnualINR": 1000,
     "description": {
       "en": "Pension starts at 60; yearly value is a rough estimate.",

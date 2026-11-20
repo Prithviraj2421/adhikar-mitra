@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  h1 { position: absolute; top: 96px; left: 0; right: 0; text-align: center; font-size: 64px; color: var(--blue); line-height: 1.2; padding: 0 140px; opacity: 0; animation: in .8s .3s forwards; }
+  .row { position: absolute; top: 330px; left: 0; right: 0; display: flex; justify-content: center; gap: 56px; }
+  .card { width: 520px; background: #fff; border-radius: 36px; padding: 48px 36px; text-align: center; border: 3px solid #dfe5f2; box-shadow: 0 24px 50px -28px rgba(26,62,158,.45); opacity: 0; transform: translateY(40px); }
+  .card:nth-child(1) { animation: up .8s 1.2s forwards; } .card:nth-child(2) { animation: up .8s 3.2s forwards; } .card:nth-child(3) { animation: up .8s 5.2s forwards; }
+  .num { font-size: 110px; color: var(--blue); line-height: 1.1; }
+  .card:nth-child(3) .num { color: var(--orange); }
+  .lbl { font-size: 32px; line-height: 1.35; margin-top: 18px; }
+  .foot { position: absolute; bottom: 70px; left: 0; right: 0; text-align: center; font-size: 26px; color: var(--muted); opacity: 0; animation: in .8s 7.4s forwards; }
+  @keyframes in { to { opacity: 1; } } @keyframes up { to { opacity: 1; transform: none; } }
+</style></head><body>
+<h1 class="poppins">Eligible families miss benefits they already qualify for</h1>
+<div class="row">
+  <div class="card"><div class="num poppins"><span data-to="1.18" data-dec="2" data-at="1500">0</span> crore</div><div class="lbl">people live in Maharashtra's slums</div></div>
+  <div class="card"><div class="num poppins"><span data-to="33" data-dec="0" data-at="3500">0</span>%</div><div class="lbl">of Indian women have ever used the internet</div></div>
+  <div class="card"><div class="num poppins"><span data-to="3000" data-dec="0" data-at="5500">0</span>+</div><div class="lbl">government schemes to find your way through</div></div>
+</div>
+<p class="foot">Figures as cited in our PPT deck</p>
+<script>
+  document.querySelectorAll("[data-to]").forEach((el) => {
+    const to = +el.dataset.to, dec = +el.dataset.dec, at = +el.dataset.at;
+    setTimeout(() => {
+      const t0 = performance.now();
+      const tick = (t) => {
+        const p = Math.min(1, (t - t0) / 1400);
+        const v = to * (1 - Math.pow(1 - p, 3));
+        el.textContent = dec ? v.toFixed(dec) : Math.round(v).toLocaleString("en-IN");
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, at - 600);
+  });
+</script>
+</body></html>

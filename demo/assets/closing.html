@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  h1 { font-size: 130px; color: var(--blue); }
+  .tag { font-size: 44px; max-width: 1400px; line-height: 1.35; }
+  .repo { font-size: 44px; font-weight: 700; color: var(--blue); border: 3px solid var(--blue); border-radius: 22px; padding: 20px 44px; }
+  .bar { width: 160px; height: 8px; border-radius: 4px; background: var(--orange); }
+  .team { font-size: 34px; color: var(--ink); font-weight: 700; }
+  .honest { font-size: 26px; color: var(--muted); }
+</style></head><body>
+<div class="center">
+  <h1 class="poppins">Adhikar Mitra</h1>
+  <div class="bar"></div>
+  <p class="tag">Every family's rightful benefits, found, explained and claimed.</p>
+  <p class="repo">github.com/Prithviraj2421/adhikar-mitra</p>
+  <p class="team" id="team"></p>
+  <p class="honest">Synthetic demo data · rules pending official verification · no government integration</p>
+</div>
+<script>
+  const team = new URLSearchParams(location.search).get("team");
+  document.getElementById("team").textContent = team ? "Team " + team + " · YCCE HackKumbh · PS 5" : "YCCE HackKumbh · PS 5";
+</script>
+</body></html>

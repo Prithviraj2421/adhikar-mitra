@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  html, body { background: transparent; }
+  /* Transparent 1600x1000 hole where the desktop recording shows through; a slim caption band below. */
+  .hole { position: absolute; left: 160px; top: 0; width: 1600px; height: 1000px; box-shadow: 0 0 0 4000px var(--bg); z-index: 1; }
+  .band { position: absolute; z-index: 2; left: 0; right: 0; top: 1000px; height: 80px; display: flex; align-items: center; justify-content: center; gap: 24px; border-top: 4px solid var(--blue); }
+  .step { width: 52px; height: 52px; border-radius: 26px; background: var(--orange); color: #fff; font-size: 32px; display: flex; align-items: center; justify-content: center; }
+  .cap { font-size: 38px; color: var(--ink); }
+</style></head><body>
+<div class="hole"></div>
+<div class="band"><div class="step poppins" id="step"></div><div class="cap poppins" id="cap"></div></div>
+<script>
+  const q = new URLSearchParams(location.search);
+  document.getElementById("step").textContent = q.get("step") || "";
+  document.getElementById("cap").textContent = q.get("cap") || "";
+  if (!q.get("step")) document.getElementById("step").style.display = "none";
+</script>
+</body></html>

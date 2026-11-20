@@ -158,7 +158,7 @@ export function buildAdminData(asOf = "2026-11-20", only?: { wardIds?: string[];
       if (e.status !== "ELIGIBLE") continue;
       const scheme = schemes.find((s) => s.id === n.schemeId)!;
       st.eligibleInstances++;
-      st.valueIdentifiedINR += e.estimatedAnnualValueINR;
+      if (scheme.benefit.type.startsWith("CASH")) st.valueIdentifiedINR += e.estimatedAnnualValueINR; // cash only, like the family view
       const s = byScheme.get(n.schemeId) ?? { eligible: 0, applied: 0 };
       const c = byCat.get(scheme.category) ?? { eligible: 0, applied: 0 };
       s.eligible++; c.eligible++;

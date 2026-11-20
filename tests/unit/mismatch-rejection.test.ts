@@ -60,3 +60,12 @@ describe("rejection decoder", () => {
     expect(decodeRejection("Thank you for your visit")).toBeNull();
   });
 });
+
+describe("household documents are compared with the head", () => {
+  it("flags Ramesh's 7/12 spelling (Vankhede) against his Aadhaar (Wankhede)", () => {
+    const f = findingsForMember(RAMESH.heldDocuments, "ramesh", true);
+    expect(f.some((x) => x.field === "name" && x.a.value.includes("Wankhede") !== x.b.value.includes("Wankhede"))).toBe(true);
+    // Not for other members: only the head is compared with household documents.
+    expect(findingsForMember(RAMESH.heldDocuments, "sunita", false)).toEqual([]);
+  });
+});

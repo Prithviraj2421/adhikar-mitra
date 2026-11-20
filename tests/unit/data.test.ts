@@ -49,3 +49,16 @@ describe("personas", () => {
     expect(map.totalEligibleINR).toBe(sum);
   });
 });
+
+describe("Ramesh's headline cash schemes (deck numbers)", () => {
+  it("PM-KISAN + Namo Shetkari + Majhi Ladki Bahin = ₹30,000 per year (estimated)", () => {
+    const map = evaluateHousehold(RAMESH.household, RAMESH.members, SCHEMES, "2026-11-20");
+    const get = (id: string) => map.entries.find((e) => e.schemeId === id && e.status === "ELIGIBLE")?.estimatedAnnualValueINR ?? 0;
+    expect(get("pm-kisan")).toBe(6000);
+    expect(get("namo-shetkari")).toBe(6000);
+    expect(get("ladki-bahin")).toBe(18000);
+    expect(get("pm-kisan") + get("namo-shetkari") + get("ladki-bahin")).toBe(30000);
+    // Health cover is eligible too, but it is insurance (not cash).
+    expect(map.entries.some((e) => e.schemeId === "pmjay" && e.status === "ELIGIBLE")).toBe(true);
+  });
+});

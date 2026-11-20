@@ -15,7 +15,7 @@
   "department": "Ministry of Labour & Employment",
   "category": "PENSION",
   "benefit": {
-    "type": "CASH_RECURRING",
+    "type": "REGISTRATION",
     "estimatedAnnualINR": 1200,
     "description": {
       "en": "Government matching contribution; pension starts at 60 (estimated).",

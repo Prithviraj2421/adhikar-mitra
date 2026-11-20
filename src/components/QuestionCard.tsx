@@ -69,7 +69,7 @@ export function QuestionCard({
   };
 
   return (
-    <section aria-labelledby="qtitle" className="card">
+    <section aria-labelledby="qtitle" className="card" data-qid={q.id}>
       {progress !== undefined && (
         <div className="mb-4 h-3 w-full rounded-full" style={{ background: "var(--border)" }} role="progressbar" aria-valuenow={Math.round(progress * 100)} aria-valuemin={0} aria-valuemax={100}>
           <div className="h-3 rounded-full" style={{ width: `${Math.round(progress * 100)}%`, background: "var(--accent)" }} />

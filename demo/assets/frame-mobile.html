@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  /* Transparent screen hole (phone video shows through it); everything else is drawn here. */
+  html, body { background: transparent; }
+  .phone { position: absolute; left: 330px; top: 66px; width: 453px; height: 948px; border: 14px solid #11151f; border-radius: 58px; box-shadow: 0 0 0 4000px var(--bg); z-index: 1; }
+  .side { position: absolute; z-index: 2; left: 900px; top: 0; bottom: 0; right: 120px; display: flex; flex-direction: column; justify-content: center; gap: 36px; }
+  .step { width: 120px; height: 120px; border-radius: 60px; background: var(--orange); color: #fff; font-size: 72px; display: flex; align-items: center; justify-content: center; }
+  .cap { font-size: 74px; line-height: 1.2; color: var(--ink); max-width: 880px; }
+  .rule { width: 140px; height: 8px; border-radius: 4px; background: var(--blue); }
+</style></head><body>
+<div class="phone"></div>
+<div class="side"><div class="step poppins" id="step"></div><div class="cap poppins" id="cap"></div><div class="rule"></div></div>
+<script>
+  const q = new URLSearchParams(location.search);
+  document.getElementById("step").textContent = q.get("step") || "";
+  document.getElementById("cap").textContent = q.get("cap") || "";
+  if (!q.get("step")) document.getElementById("step").style.display = "none";
+</script>
+</body></html>

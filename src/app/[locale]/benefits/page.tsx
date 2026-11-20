@@ -31,7 +31,7 @@ export default function BenefitsPage() {
   }, [benefits]);
 
   // A little celebration the first time the family sees their total.
-  const total = benefits?.map.totalEligibleINR ?? 0;
+  const total = benefits?.map.totalEligibleINR ?? 0; // only used to trigger the one-time celebration
   useEffect(() => {
     if (fired.current || total <= 0 || !heroRef.current) return;
     fired.current = true;
@@ -41,13 +41,20 @@ export default function BenefitsPage() {
   }, [total]);
 
   if (!family || !benefits || !stats) return (<><PageTitle title={t("ben.title")} icon="🎁" /><EmptyFamily /></>);
-  const { map, plan } = benefits;
+  const { plan } = benefits;
+
+  // The headline ₹ is CASH only (pensions, farmer and women's payments, scholarships). Insurance and
+  // registrations (health cover, accident cover) are listed separately: their ₹ value is not cash in hand.
+  const isCash = (id: string) => schemeById(id)!.benefit.type.startsWith("CASH");
+  const cashTotal = stats.eligible.filter((e) => isCash(e.schemeId)).reduce((s, e) => s + e.estimatedAnnualValueINR, 0);
+  const cashPotential = [...stats.eligible, ...stats.likely].filter((e) => isCash(e.schemeId)).reduce((s, e) => s + e.estimatedAnnualValueINR, 0);
+  const serviceCount = stats.eligible.filter((e) => !isCash(e.schemeId)).length;
 
   const list: Evaluation[] = tab === "eligible" ? stats.eligible : tab === "likely" ? stats.likely : tab === "soon" ? stats.soon : stats.not;
   const byMember = family.members
     .map((m) => ({ m, items: list.filter((e) => e.memberId === m.id) }))
     .filter((g) => g.items.length);
-  const memberValue = (id: string) => stats.eligible.filter((e) => e.memberId === id).reduce((s, e) => s + e.estimatedAnnualValueINR, 0);
+  const memberValue = (id: string) => stats.eligible.filter((e) => e.memberId === id && isCash(e.schemeId)).reduce((s, e) => s + e.estimatedAnnualValueINR, 0);
   const tabs: { id: Tab; label: string; n: number }[] = [
     { id: "eligible", label: t("ben.tab.eligible"), n: stats.eligible.length },
     { id: "likely", label: t("ben.tab.likely"), n: stats.likely.length },
@@ -65,11 +72,12 @@ export default function BenefitsPage() {
         <div className="pointer-events-none absolute -right-10 -top-8 opacity-30" aria-hidden><HeroOrbit size={200} /></div>
         <p className="max-w-[16rem] text-base font-bold leading-snug opacity-95">{t("ben.hero")}</p>
         <p className="my-1 text-5xl font-extrabold tracking-tight" style={{ textShadow: "0 4px 24px rgba(0,0,0,.35)" }} data-testid="hero-total">
-          <CountUp value={map.totalEligibleINR} />
+          <CountUp value={cashTotal} />
         </p>
         <p className="text-sm font-semibold opacity-95">{t("ben.perYear")} · <span className="rounded-full bg-white/20 px-2 py-0.5">{t("common.estimated")}</span></p>
-        {map.totalPotentialINR > map.totalEligibleINR && (
-          <p className="mt-2 text-sm font-semibold opacity-95">{t("ben.potential", { amount: Math.round(map.totalPotentialINR).toLocaleString("en-IN") })}</p>
+        {serviceCount > 0 && <p className="mt-2 text-sm font-semibold opacity-95" data-testid="plus-services">+ {t("ben.plusServices", { n: serviceCount })}</p>}
+        {cashPotential > cashTotal && (
+          <p className="mt-1 text-sm font-semibold opacity-95">{t("ben.potential", { amount: Math.round(cashPotential).toLocaleString("en-IN") })}</p>
         )}
         <div className="mt-4 flex items-center gap-3 rounded-2xl bg-black/25 p-3">
           <Ring value={ready} max={Math.max(needs, 1)} size={64} stroke={8} color="#4ade80"><span className="text-white">{needs ? Math.round((ready / needs) * 100) : 0}%</span></Ring>
@@ -140,7 +148,7 @@ export default function BenefitsPage() {
       {byMember.length === 0 && <p className="card muted">{t("ben.none")}</p>}
       <ul className="flex flex-col gap-4">
         {byMember.map(({ m, items }, mi) => {
-          const value = items.reduce((s, e) => s + e.estimatedAnnualValueINR, 0);
+          const value = items.filter((e) => isCash(e.schemeId)).reduce((s, e) => s + e.estimatedAnnualValueINR, 0);
           return (
             <li key={m.id} className="card rise" style={{ animationDelay: `${mi * 0.06}s` }}>
               <div className="mb-3 flex items-center gap-3">
@@ -170,7 +178,7 @@ export default function BenefitsPage() {
                           </span>
                         </span>
                         {tab !== "not" && tab !== "soon" && (
-                          <span className="chip shrink-0" style={{ background: "var(--success-soft)", color: "var(--success)" }}><Rupees n={e.estimatedAnnualValueINR} /></span>
+                          <span className="chip shrink-0" style={{ background: "var(--success-soft)", color: "var(--success)" }}>{isCash(e.schemeId) ? <Rupees n={e.estimatedAnnualValueINR} /> : t("ben.nonCash")}</span>
                         )}
                       </Link>
                     </li>

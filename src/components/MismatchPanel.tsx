@@ -13,7 +13,7 @@ const docName = (id: string) => DOCUMENTS.find((d) => d.id === id)?.name;
 export function MismatchPanel({ members, held }: { members: Member[]; held: HeldDocument[] }) {
   const { t, l, locale } = useT();
   const fix = REASONS.find((r) => r.id === "name-mismatch")!;
-  const rows = members.map((m) => ({ m, f: findingsForMember(held, m.id) })).filter((x) => x.f.length);
+  const rows = members.map((m) => ({ m, f: findingsForMember(held, m.id, m.relation === "SELF") })).filter((x) => x.f.length);
 
   const lvl = (f: Finding) =>
     f.level === "MISMATCH" ? { c: "var(--danger)", s: "var(--danger-soft)", label: t("mm.mismatch") } :

@@ -44,3 +44,9 @@ next-env.d.ts
 # test output
 test-results/
 playwright-report/
+
+# demo video outputs (uploaded separately, not committed)
+demo/build/
+demo/*.mp4
+*.mp4
+

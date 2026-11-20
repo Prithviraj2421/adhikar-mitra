@@ -1,0 +1,12 @@
+/* Palette and fonts match the PPT deck: deep blue, ONE orange highlight, dark text, light background. */
+@import url("../../node_modules/@fontsource/open-sans/400.css");
+@import url("../../node_modules/@fontsource/open-sans/700.css");
+@import url("../../node_modules/@fontsource/poppins/600.css");
+@import url("../../node_modules/@fontsource/poppins/devanagari-600.css");
+
+:root { --blue: #1A3E9E; --orange: #C85A12; --ink: #1F2430; --bg: #F4F6FA; --muted: #55607A; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body { background: var(--bg); color: var(--ink); font-family: "Open Sans", "Poppins", system-ui, sans-serif; }
+.poppins { font-family: "Poppins", "Open Sans", sans-serif; font-weight: 600; }
+.center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 28px; }

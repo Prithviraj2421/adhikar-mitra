@@ -7,7 +7,7 @@ Use **Persona 1: Shantabai Kamble household** (urban slum, Ward 4). Run `npm run
 | 0:00 | "Every family's rightful benefits, found, explained and claimed. Five gaps stop families; portals solve only the first." | Language screen: three huge buttons. Tap the 🔊 next to मराठी, then **मराठी**. |
 | 0:12 | "Consent in plain words, and a promise: we never ask for money or OTP." | Consent → agree → login (demo OTP shown on screen). |
 | 0:22 | "One question per screen, pictures, voice, and 'I don't know' on every question." | Questionnaire: tap the 🎤, speak an answer, show "I heard…" confirm. Tap **I don't know** once. (Then jump to the saved persona: tap **Shantabai** on the login page.) |
-| 0:40 | "One household, one map: about ₹1.36 lakh a year, estimated." | Family Benefit Map: the rupee count-up, member cards, tabs (Eligible · Needs more info · Coming soon). |
+| 0:40 | "One household, one map: the cash benefits counting up (estimated), with insurance such as health cover listed separately." | Family Benefit Map: the rupee count-up, member cards, tabs (Eligible · Needs more info · Coming soon). |
 | 0:55 | "No black box. Every rule is checked and explained." | Open **Sanjay Gandhi Niradhar Anudan** → the **Why?** checklist (✓ ✗ ?) → **Explain more simply** → 🔊. Point at "Rules last verified: pending". |
 | 1:10 | "The real blocker is documents. We show the single document to get first." | **Documents**: "Get this first", the step list, the orange-glowing Unlock Graph; tap a node to highlight paths. |
 | 1:25 | "Aadhaar says Shantabai Ramesh Kamble; the bank says Shanta R. Kambale. We flag it before submission." | Name-and-date check panel → "Small difference". |

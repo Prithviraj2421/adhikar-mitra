@@ -135,6 +135,10 @@ export function compareDocuments(docs: HeldDocument[]): Finding[] {
   return out;
 }
 
-export function findingsForMember(all: HeldDocument[], memberId: string): Finding[] {
-  return compareDocuments(all.filter((d) => d.memberId === memberId));
+/**
+ * Findings for one person. Household-level documents (ration card, 7/12 land extract) are written in the
+ * head of the family's name, so they are compared with the head's own documents as well.
+ */
+export function findingsForMember(all: HeldDocument[], memberId: string, isHead = false): Finding[] {
+  return compareDocuments(all.filter((d) => d.memberId === memberId || (isHead && d.memberId === null && !!d.nameOnDocument)));
 }

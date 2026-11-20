@@ -185,7 +185,8 @@
   "office.COLLEGE_OFFICE": "College office",
   "office.BOCW_FACILITATION_CENTRE": "Construction worker facilitation centre",
   "ben.title": "Family Benefit Map",
-  "ben.hero": "Your family may be eligible for benefits worth about",
+  "ben.hero": "Your family may be eligible for cash benefits worth about",
+  "ben.plusServices": "{n} insurance and service benefits, like health cover (not counted in the ₹)",
   "ben.perYear": "per year",
   "ben.potential": "Up to ₹{amount} per year if the open questions are answered.",
   "ben.getFirst": "Get this document first",
@@ -440,6 +441,7 @@
   "theme.dark": "Dark",
   "theme.system": "Auto",
   "set.theme": "Theme: Light, Dark or Auto (follows your phone)",
+  "ben.nonCash": "Cover / service",
   "ben.members": "Your family",
   "ben.readyBar": "{a} of {b} benefits are ready to apply for"
 }
