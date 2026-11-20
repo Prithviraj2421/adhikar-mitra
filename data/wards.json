@@ -1,0 +1,15 @@
+{
+  "_note": "SYNTHETIC demo wards near Nagpur (21.1458 N, 79.0882 E). Not real ward boundaries or data.",
+  "wards": [
+    { "id": "ward-1", "name": "Ward 1 (synthetic)", "lat": 21.1702, "lng": 79.0556, "households": 20, "missingIncomeCert": 0.30, "missingSeeding": 0.20, "applyRate": 0.55 },
+    { "id": "ward-2", "name": "Ward 2 (synthetic)", "lat": 21.1810, "lng": 79.1024, "households": 20, "missingIncomeCert": 0.15, "missingSeeding": 0.10, "applyRate": 0.75 },
+    { "id": "ward-3", "name": "Ward 3 (synthetic)", "lat": 21.1520, "lng": 79.1330, "households": 20, "missingIncomeCert": 0.40, "missingSeeding": 0.30, "applyRate": 0.40 },
+    { "id": "ward-4", "name": "Ward 4 (synthetic)", "lat": 21.1300, "lng": 79.0850, "households": 20, "missingIncomeCert": 0.65, "missingSeeding": 0.55, "applyRate": 0.20 },
+    { "id": "ward-5", "name": "Ward 5 (synthetic)", "lat": 21.1100, "lng": 79.0600, "households": 20, "missingIncomeCert": 0.25, "missingSeeding": 0.25, "applyRate": 0.60 },
+    { "id": "ward-6", "name": "Ward 6 (synthetic)", "lat": 21.1020, "lng": 79.1150, "households": 20, "missingIncomeCert": 0.35, "missingSeeding": 0.15, "applyRate": 0.50 },
+    { "id": "ward-7", "name": "Ward 7 (synthetic)", "lat": 21.1650, "lng": 79.0200, "households": 20, "missingIncomeCert": 0.90, "missingSeeding": 0.30, "applyRate": 0.10 },
+    { "id": "ward-8", "name": "Ward 8 (synthetic)", "lat": 21.2000, "lng": 79.0800, "households": 20, "missingIncomeCert": 0.20, "missingSeeding": 0.20, "applyRate": 0.70 },
+    { "id": "ward-9", "name": "Ward 9 (synthetic)", "lat": 21.1250, "lng": 79.1450, "households": 20, "missingIncomeCert": 0.45, "missingSeeding": 0.60, "applyRate": 0.30 },
+    { "id": "ward-10", "name": "Ward 10 (synthetic)", "lat": 21.0900, "lng": 79.0900, "households": 20, "missingIncomeCert": 0.30, "missingSeeding": 0.35, "applyRate": 0.45 }
+  ]
+}

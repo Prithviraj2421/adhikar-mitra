@@ -1,4 +1,4 @@
-import type { DocumentType } from "@/lib/data";
+﻿import type { DocumentType } from "@/lib/data";
 import { effortOf, obtainSet, parseKey, type Need } from "./graph";
 
 export interface Ranked {
@@ -40,7 +40,6 @@ export function rankMissing(needs: Need[], docs: DocumentType[], held: Set<strin
     const partialValueINR = partial.reduce((s, n) => s + n.valueINR, 0);
     const members = new Set([...fully, ...partial].map((n) => n.memberId));
     ranked.push({
-      key,
       ...parseKey(key),
       obtain,
       effortDays,
@@ -54,3 +53,4 @@ export function rankMissing(needs: Need[], docs: DocumentType[], held: Set<strin
   }
   return ranked.sort((a, b) => b.score - a.score || b.membersHelped - a.membersHelped || a.key.localeCompare(b.key));
 }
+

@@ -1,0 +1,10 @@
+[
+  { "id": "TURNS_AGE", "icon": "🎂", "needsMember": true, "valueKind": "age", "label": { "en": "Turns a milestone age", "hi": "एक महत्वपूर्ण आयु पूरी हुई", "mr": "महत्त्वाचे वय पूर्ण झाले" } },
+  { "id": "SPOUSE_DIED", "icon": "🕯️", "needsMember": true, "valueKind": "none", "label": { "en": "Spouse died", "hi": "जीवनसाथी का निधन", "mr": "जोडीदाराचे निधन" } },
+  { "id": "PREGNANCY", "icon": "🤰", "needsMember": true, "valueKind": "none", "label": { "en": "Pregnancy registered", "hi": "गर्भावस्था पंजीकृत", "mr": "गर्भधारणा नोंदवली" } },
+  { "id": "CHILD_BORN", "icon": "👶", "needsMember": false, "valueKind": "none", "label": { "en": "Child born", "hi": "बच्चे का जन्म", "mr": "बाळाचा जन्म" } },
+  { "id": "CHILD_CLASS", "icon": "🎒", "needsMember": true, "valueKind": "class", "label": { "en": "Child entered a new class", "hi": "बच्चा नई कक्षा में गया", "mr": "मूल नवीन इयत्तेत गेले" } },
+  { "id": "OCCUPATION_CHANGED", "icon": "🛠️", "needsMember": true, "valueKind": "occupation", "label": { "en": "Occupation changed", "hi": "व्यवसाय बदला", "mr": "व्यवसाय बदलला" } },
+  { "id": "DISABILITY_CERTIFIED", "icon": "♿", "needsMember": true, "valueKind": "percent", "label": { "en": "Disability certified", "hi": "दिव्यांगता प्रमाणित", "mr": "दिव्यांगत्व प्रमाणित" } },
+  { "id": "MOVED_DISTRICT", "icon": "🚚", "needsMember": false, "valueKind": "district", "label": { "en": "Moved to another district", "hi": "दूसरे जिले में गए", "mr": "दुसऱ्या जिल्ह्यात स्थलांतर" } }
+]
