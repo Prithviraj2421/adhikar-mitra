@@ -2,26 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Palette: deep indigo = trust, saffron = action / "unlock", green = success, red only for real warnings. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #fbf9f5;
+  --fg: #1c1b2e;
+  --card: #ffffff;
+  --muted: #5a5873;
+  --border: #e4e0d8;
+  --primary: #3730a3;
+  --primary-fg: #ffffff;
+  --accent: #ea580c;
+  --accent-soft: #fff1e6;
+  --success: #15803d;
+  --success-soft: #e6f4ea;
+  --danger: #b91c1c;
+  --danger-soft: #fdecec;
+  --warn-soft: #fff7d6;
+  --ring: #ea580c;
 }
-
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not(.light) {
+    --bg: #12111f;
+    --fg: #f1efe9;
+    --card: #1c1b2e;
+    --muted: #b4b1cc;
+    --border: #35334d;
+    --primary: #a5b4fc;
+    --primary-fg: #12111f;
+    --accent: #fb923c;
+    --accent-soft: #3a2415;
+    --success: #4ade80;
+    --success-soft: #12301d;
+    --danger: #f87171;
+    --danger-soft: #3a1717;
+    --warn-soft: #3a3314;
   }
 }
+.high-contrast {
+  --bg: #ffffff;
+  --fg: #000000;
+  --card: #ffffff;
+  --muted: #1a1a1a;
+  --border: #000000;
+  --primary: #1e1b8a;
+  --accent: #b34000;
+  --success: #0b5a1f;
+  --danger: #8f0000;
+}
+.high-contrast.dark-hc, .dark-hc.high-contrast { --bg: #000; --fg: #fff; --card: #000; --border: #fff; }
 
+html { font-size: 16px; }
+html.large-text { font-size: 20px; }
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-noto), var(--font-noto-deva), system-ui, sans-serif;
+  line-height: 1.55;
+}
+:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+
+@layer components {
+  .card { @apply rounded-3xl border bg-[var(--card)] p-5 shadow-sm; border-color: var(--border); }
+  .btn {
+    @apply inline-flex min-h-[3.5rem] min-w-[3.5rem] items-center justify-center gap-2 rounded-2xl px-6 text-lg font-semibold transition active:scale-[.98] disabled:opacity-50;
+  }
+  .btn-primary { background: var(--primary); color: var(--primary-fg); }
+  .btn-accent { background: var(--accent); color: #fff; }
+  .btn-ghost { border: 2px solid var(--border); background: var(--card); }
+  .chip { @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm font-medium; background: var(--accent-soft); }
+  .muted { color: var(--muted); }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
+@keyframes pop { 0% { transform: scale(.4); opacity: 0 } 70% { transform: scale(1.15) } 100% { transform: scale(1); opacity: 1 } }
+.pop { animation: pop .45s ease-out both; }
+@keyframes glow { 0%,100% { filter: drop-shadow(0 0 2px var(--accent)); } 50% { filter: drop-shadow(0 0 12px var(--accent)); } }
+.glow { animation: glow 1.6s ease-in-out infinite; }
+@keyframes dash { to { stroke-dashoffset: -24; } }
+.flow-edge-glow path { stroke-dasharray: 8 4; animation: dash 1s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .pop, .glow, .flow-edge-glow path { animation: none; } }

@@ -5,7 +5,7 @@
 import { DOCUMENTS, SCHEMES } from "@/lib/data";
 import type { HeldDocument } from "@/lib/doc-graph/types";
 import type { Member } from "@/lib/eligibility/types";
-import { STATUS_LABEL, type AppStatus, type Application } from "@/lib/tracker";
+import { STATUS_LABEL, nextActionFor, type AppStatus, type Application } from "@/lib/tracker";
 
 export type Locale = "en" | "hi" | "mr";
 export type NotifKind = "deadline" | "missing-doc" | "expiring-doc" | "new-eligibility" | "camp" | "status";
@@ -100,16 +100,17 @@ export function runDailyChecks(i: CheckInput): Notif[] {
     if (a.deadline) {
       const left = daysBetween(i.asOf, a.deadline);
       if (left >= 0 && left <= 7) {
-        push("deadline", a.id, { scheme, days: left, date: a.deadline, next: a.nextAction ?? "" });
+        push("deadline", a.id, { scheme, days: left, date: a.deadline, next: a.nextAction ?? nextActionFor(a.status)?.[i.locale] ?? "" });
       }
       const missing = i.missingDocsByApp?.[`${a.schemeId}:${a.memberId}`] ?? [];
       if (left >= 0 && missing.length) {
         push("missing-doc", a.id, { name: nameOf(a.memberId), scheme, doc: docName(missing[0], i.locale), date: a.deadline });
       }
     }
-    if (a.nextAction && daysBetween(a.updatedOn, i.asOf) > 7 && a.status !== "NOT_STARTED") {
+    const next = a.nextAction ?? nextActionFor(a.status)?.[i.locale];
+    if (next && daysBetween(a.updatedOn, i.asOf) > 7 && a.status !== "NOT_STARTED") {
       push("status", `pending-${a.id}`, {
-        scheme, name: nameOf(a.memberId), status: STATUS_LABEL[a.status][i.locale], next: a.nextAction,
+        scheme, name: nameOf(a.memberId), status: STATUS_LABEL[a.status][i.locale], next,
       });
     }
   }

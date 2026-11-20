@@ -123,6 +123,7 @@ export function evalLeaf(leaf: Leaf, ctx: Ctx): CriterionOutcome {
     id: leaf.id,
     label: leaf.label,
     result,
+    field: leaf.field,
     actual: isNil(actual) ? null : actual,
     expected: leaf.value ?? null,
     op: leaf.op,

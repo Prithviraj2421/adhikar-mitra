@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" font-family="Noto Sans, Noto Sans Devanagari, Nirmala UI, Arial, sans-serif">
+  <rect width="900" height="560" fill="#fff"/><rect x="8" y="8" width="884" height="544" fill="none" stroke="#999" stroke-width="3"/>
+  <text x="40" y="60" font-size="30" font-weight="700" fill="#222">Aadhaar (SAMPLE)</text>
+  <text x="40" y="92" font-size="18" fill="#a00">SAMPLE - SYNTHETIC DOCUMENT, NOT REAL</text>
+  <text x="40" y="130" font-size="28" fill="#111">Name: Shantabai Ramesh Kamble</text>
+  <text x="40" y="176" font-size="28" fill="#111">DOB: 14/03/1968</text>
+  <text x="40" y="222" font-size="28" fill="#111">Gender: Female</text>
+  <text x="40" y="268" font-size="28" fill="#111">XXXX XXXX 4821</text>
+  <text x="450" y="320" font-size="120" font-weight="800" fill="#cc0000" fill-opacity="0.13" text-anchor="middle" transform="rotate(-22 450 280)">SAMPLE</text>
+</svg>

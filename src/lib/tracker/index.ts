@@ -55,13 +55,12 @@ export const nextActionFor = (s: AppStatus) => NEXT_ACTION[s];
 /** Moves an application to a new status, appending a history event. The user updates this themselves: there is no government sync. */
 export function moveStatus(app: Application, to: AppStatus, at: string, note?: string): Application {
   if (app.status === to) return app;
-  const nextAction = NEXT_ACTION[to];
   return {
     ...app,
     status: to,
     updatedOn: at,
     submittedOn: to === "SUBMITTED" ? at : app.submittedOn,
-    nextAction: nextAction?.en,
+    nextAction: undefined, // cleared: the UI shows the localized default for the new status unless the user writes their own
     events: [...app.events, { from: app.status, to, at, note }],
   };
 }

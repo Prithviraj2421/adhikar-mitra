@@ -1,0 +1,13 @@
+{
+  "_note": "SAMPLE locations for the demo only. These are not real offices; replace with verified data before any real use.",
+  "centres": [
+    { "id": "hc1", "type": "AAPLE_SARKAR_KENDRA", "name": "Aaple Sarkar Seva Kendra (sample 1)", "lat": 21.1458, "lng": 79.0882 },
+    { "id": "hc2", "type": "CSC", "name": "Common Service Centre (sample 1)", "lat": 21.1560, "lng": 79.0720 },
+    { "id": "hc3", "type": "TEHSIL_OFFICE", "name": "Tehsil Office (sample)", "lat": 21.1390, "lng": 79.1010 },
+    { "id": "hc4", "type": "GRAM_PANCHAYAT", "name": "Gram Panchayat (sample village)", "lat": 21.2100, "lng": 79.0300 },
+    { "id": "hc5", "type": "CSC", "name": "Common Service Centre (sample 2)", "lat": 21.1250, "lng": 79.0650 },
+    { "id": "hc6", "type": "AAPLE_SARKAR_KENDRA", "name": "Aaple Sarkar Seva Kendra (sample 2)", "lat": 21.1700, "lng": 79.1200 },
+    { "id": "hc7", "type": "ANGANWADI", "name": "Anganwadi (sample)", "lat": 21.1330, "lng": 79.0790 },
+    { "id": "hc8", "type": "BANK_BRANCH", "name": "Bank branch (sample)", "lat": 21.1500, "lng": 79.0950 }
+  ]
+}

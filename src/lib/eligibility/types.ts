@@ -89,6 +89,7 @@ export interface CriterionOutcome {
   id: string;
   label: L10n;
   result: CriterionResult;
+  field: string;
   actual: unknown;
   expected: unknown;
   op: Op;

@@ -1,0 +1,12 @@
+{
+  "name": "Adhikar Mitra (अधिकार मित्र)",
+  "short_name": "Adhikar Mitra",
+  "description": "Every family's rightful benefits, found, explained and claimed.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbf9f5",
+  "theme_color": "#3730a3",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
